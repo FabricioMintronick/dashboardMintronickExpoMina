@@ -5,7 +5,10 @@
   "description": "Dashboard local que consulta MongoDB de mintronick.com y muestra datos en vivo por equipo",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test tests/*.test.cjs",
+    "check": "node scripts/check.cjs"
   },
   "dependencies": {
     "express": "^4.19.2",

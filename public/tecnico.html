@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard Mintronick - Por Equipo</title>
+<link rel="icon" type="image/png" href="/assets/LOGO_Transparente.png">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/chart.js@4/dist/chart.umd.js"></script>
+<link rel="stylesheet" href="/legacy/technical.css">
+</head>
+<body><p><a href="/">← Volver a Operaciones</a> · Vista técnica heredada. Umbrales de referencia sin validar. Las lecturas pueden ser antiguas.</p>
+  <header>
+    <div class="brand">
+      <img src="/assets/LOGO_Transparente.png" alt="Mintronick">
+      <h1>Dashboard de Flota</h1>
+    </div>
+    <div class="view-toggle">
+      <button id="viewTeamBtn" class="view-btn active">Por equipo</button>
+      <button id="viewProBtn" class="view-btn">Panel Pro</button>
+      <button id="viewMapBtn" class="view-btn">Mapa general</button>
+      <button id="viewHistBtn" class="view-btn">Historial</button>
+    </div>
+    <select id="gatewaySelect"></select>
+    <span id="status"><span class="dot" id="dot"></span><span id="statusText">conectando...</span></span>
+    <span id="gwStatus"><span class="gw-dot" id="gwDot"></span><span id="gwStatusText">equipo: verificando...</span></span>
+    <span id="pingStatus"><span class="gw-dot" id="pingDot"></span><span id="pingStatusText">red: verificando...</span></span>
+    <span id="firstDataInfo">datos desde: --</span>
+  </header>
+  <div class="map-all-wrap" id="mapAllWrap" style="display:none;">
+    <div class="map-all" id="mapAllDiv"></div>
+  </div>
+  <div class="pro-wrap" id="proWrap" style="display:none;">
+    <div class="pro-top">
+      <span class="pro-state-chip" id="proStateChip">ESTADO: --</span>
+      <span class="pro-ts" id="proTs"></span>
+    </div>
+    <div class="pro-section-title">Motor</div>
+    <div class="gauges-row" id="proGauges"></div>
+    <div class="pro-section-title">Indicadores</div>
+    <div class="stats-row" id="proStats"></div>
+    <div class="pro-section-title">Datos Adicionales</div>
+    <div class="stats-row" id="proExtra"></div>
+    <div class="pro-section-title">Alarmas</div>
+    <div class="alarms-row" id="proAlarms"></div>
+  </div>
+  <div class="hist-wrap" id="histWrap" style="display:none;">
+    <div class="hist-submode">
+      <button id="histInstantBtn" class="view-btn active">Instante</button>
+      <button id="histRangeBtn" class="view-btn">Rango</button>
+    </div>
+
+    <div id="histInstantPanel">
+      <div class="hist-controls">
+        <div class="hist-field">
+          <label for="histInstantAt">Fecha y hora (hora local)</label>
+          <input type="datetime-local" id="histInstantAt" step="1">
+        </div>
+        <button class="hist-btn" id="histInstantLoadBtn">Ver</button>
+      </div>
+      <div class="hist-instant-ts" id="histInstantStatus"></div>
+      <!-- Reutiliza el mismo #grid (tarjetas "Por equipo" con todos los campos crudos) que la vista en vivo -->
+    </div>
+
+    <div id="histRangePanel" style="display:none;">
+      <div class="hist-controls">
+        <div class="hist-field">
+          <label for="histFrom">Desde (hora local)</label>
+          <input type="datetime-local" id="histFrom" step="1">
+        </div>
+        <div class="hist-field">
+          <label for="histTo">Hasta (hora local)</label>
+          <input type="datetime-local" id="histTo" step="1">
+        </div>
+        <button class="hist-btn" id="histRangeLoadBtn">Cargar</button>
+        <div class="hist-series-picker" id="histSeriesPicker"></div>
+      </div>
+      <div class="hist-note" id="histRangeStatus"></div>
+      <div class="hist-charts" id="histCharts"></div>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+
+<script src="/legacy/technical.js"></script>
+</body>
+</html>

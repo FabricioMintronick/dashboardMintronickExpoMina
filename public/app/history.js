@@ -1,0 +1,28 @@
+import { escape as e, date, number } from './format.js';
+function localInput(time){const d=new Date(time);return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,16);}
+export async function mount(page,{items,id,panel,getJSON}){
+  let chart=null,alive=true,request=0;
+  const selected=items.find(i=>i.id===id)||items[0];
+  const end=selected?.lastAt?Math.min(Date.now(),new Date(selected.lastAt).getTime()):Date.now();
+  const signals={rpm:'RPM del motor',coolant:'Temperatura refrigerante',fuel:'Nivel de combustible',voltage:'Voltaje de batería',hydtemp:'Temperatura hidráulica',load:'Carga del motor',hours:'Horómetro',fuelrate:'Consumo instantáneo',speed:'Velocidad GPS',fuelTotal:'Combustible acumulado',idleHours:'Horas acumuladas de ralentí',idleFuel:'Combustible acumulado en ralentí'};
+  page.innerHTML=`<form id="history-form" class="toolbar"><label>Equipo<select id="history-equipment">${items.map(i=>`<option value="${e(i.gateway)}" ${i===selected?'selected':''}>${e(i.name)}</option>`).join('')}</select></label><label>Señal<select id="history-signal">${Object.entries(signals).map(([key,label])=>`<option value="${key}">${label}</option>`).join('')}</select></label><label>Desde · Hora local<input type="datetime-local" id="history-from" value="${localInput(end-3600000)}" required></label><label>Hasta · Hora local<input type="datetime-local" id="history-to" value="${localInput(end+60000)}" required></label><button class="button" type="submit">Consultar</button></form><div class="notice">El periodo inicial corresponde a la última comunicación del equipo seleccionado, no necesariamente a hoy. Máximo 31 días por consulta. No se estima producción ni duración de estados a partir de estos gráficos.</div><div id="history-result" aria-live="polite">${panel('Historial por señal','Selecciona el periodo y pulsa Consultar.','<div class="empty">Las consultas se ejecutan bajo demanda para evitar cargar históricos innecesarios.</div>')}</div>`;
+  page.querySelector('#history-equipment').addEventListener('change',()=>{const item=items.find(i=>i.gateway===page.querySelector('#history-equipment').value);if(item?.lastAt){const at=Math.min(Date.now(),new Date(item.lastAt).getTime());page.querySelector('#history-from').value=localInput(at-3600000);page.querySelector('#history-to').value=localInput(at+60000);}});
+  page.querySelector('#history-form').addEventListener('submit',async event=>{
+    event.preventDefault();const seq=++request;const button=event.target.querySelector('button');button.disabled=true;
+    const target=page.querySelector('#history-result');
+    try{
+      const params=new URLSearchParams({gateway:page.querySelector('#history-equipment').value,signal:page.querySelector('#history-signal').value,from:new Date(page.querySelector('#history-from').value).toISOString(),to:new Date(page.querySelector('#history-to').value).toISOString()});
+      const data=await getJSON(`/api/telemetry/history?${params}`);if(!alive||seq!==request)return;
+      chart?.destroy();chart=null;
+      target.innerHTML=`${data.truncated?'<div class="notice warning"><strong>Resultado incompleto:</strong> se alcanzaron 5 000 puntos. Acorta el periodo. No utilices esta consulta para calcular totales.</div>':''}${panel(e(data.label),`${data.points.length} puntos · ${data.bucketMs?'Promedios por intervalo':'Lecturas originales'} · ${e(data.unit)}`,data.points.length?'<div class="chart-wrap"><canvas id="history-chart" aria-label="Gráfico histórico de la señal" role="img"></canvas></div>':'<div class="empty"><strong>No hay lecturas en este periodo</strong>Prueba otras fechas o una señal disponible en el equipo.</div>')}<div class="notice">${e(data.note)}</div>${data.points.length?panel('Evidencia de la consulta','Últimos 15 puntos devueltos. Las fechas corresponden a las muestras o al inicio de cada intervalo.',`<div class="table-scroll"><table><thead><tr><th>FECHA</th><th>${data.bucketMs?'PROMEDIO':'VALOR'}</th>${data.bucketMs?'<th>MÍNIMO</th><th>MÁXIMO</th><th>MUESTRAS VÁLIDAS</th>':''}</tr></thead><tbody>${data.points.slice(-15).map(p=>`<tr><td>${e(date(p.t))}</td><td>${number(p.v)} ${e(data.unit)}</td>${data.bucketMs?`<td>${number(p.min)}</td><td>${number(p.max)}</td><td>${number(p.count)}</td>`:''}</tr>`).join('')}</tbody></table></div>`):''}`;
+      if(data.points.length){
+        if(!window.Chart){target.querySelector('.chart-wrap').innerHTML='<div class="empty">Gráfico no disponible. Consulta las lecturas en la tabla.</div>';return;}
+        const series=[];let previous=null;
+        for(const p of data.points){const t=new Date(p.t).getTime();if(previous!==null&&t-previous>data.gapAfterMs*1.5)series.push({x:previous+1,y:null});series.push({x:t,y:p.v});previous=t;}
+        chart=new Chart(page.querySelector('#history-chart'),{type:'line',data:{datasets:[{label:`${data.label} (${data.unit})`,data:series,borderColor:'#087f83',backgroundColor:'#087f8310',pointRadius:data.points.length>100?0:2,borderWidth:2,spanGaps:false,tension:0}]},options:{responsive:true,maintainAspectRatio:false,parsing:false,animation:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:ctx=>date(ctx[0].parsed.x)}}},scales:{x:{type:'linear',min:new Date(data.from).getTime(),max:new Date(data.to).getTime(),ticks:{maxTicksLimit:6,callback:v=>new Date(v).toLocaleString('es-PE',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})},grid:{display:false}},y:{title:{display:true,text:data.unit}}}}});
+      }
+    }catch(err){if(alive)target.innerHTML=`<div class="error-box"><strong>No se pudo consultar el historial</strong><p>${e(err.message)}</p></div>`;}
+    finally{if(alive)button.disabled=false;}
+  });
+  return ()=>{alive=false;chart?.destroy();};
+}
