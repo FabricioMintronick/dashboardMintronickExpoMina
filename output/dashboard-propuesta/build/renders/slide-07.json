@@ -1,0 +1,747 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/zqci8x",
+    "id": "zqci8x",
+    "slide": 7,
+    "layoutId": "fad47a1b-004c-4ca2-b025-e94d40d04b0c",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "1bea8d05-957a-4326-a0ac-4e2ff01c6977",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "fad47a1b-004c-4ca2-b025-e94d40d04b0c",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "1bea8d05-957a-4326-a0ac-4e2ff01c6977",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "1bea8d05-957a-4326-a0ac-4e2ff01c6977",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xsbqhgvy",
+      "id": "1",
+      "name": "REFERENCIA VISUAL",
+      "bbox": [
+        48,
+        25,
+        1150,
+        24
+      ],
+      "geometry": "rect",
+      "text": "REFERENCIA VISUAL",
+      "textPreview": "REFERENCIA VISUAL",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#087F86",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "REFERENCIA VISUAL"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "REFERENCIA VISUAL",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#087F86",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "REFERENCIA VISUAL",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#087F86",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ap07m1c7",
+      "id": "2",
+      "name": "Komatsu: mirar el uso en el tiempo",
+      "bbox": [
+        48,
+        69,
+        1184,
+        73
+      ],
+      "geometry": "rect",
+      "text": "Komatsu: mirar el uso en el tiempo",
+      "textPreview": "Komatsu: mirar el uso en el tiempo",
+      "resolvedFontSize": 48,
+      "resolvedTextStyle": {
+        "fontSize": 48,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Komatsu: mirar el uso en el tiempo"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Komatsu: mirar el uso en el tiempo",
+          "resolvedTextStyle": {
+            "fontSize": 48,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Komatsu: mirar el uso en el tiempo",
+              "fontSize": 48,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bq98f6ds",
+      "id": "3",
+      "name": "Foto de tu documento, captura 15 · My Komatsu se consulta como re",
+      "bbox": [
+        48,
+        674,
+        1110,
+        30
+      ],
+      "geometry": "rect",
+      "text": "Foto de tu documento, captura 15 · My Komatsu se consulta como referencia adicional",
+      "textPreview": "Foto de tu documento, captura 15 · My Komatsu se consulta como referencia adicional",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Foto de tu documento, captura 15 · My Komatsu se consulta como referencia adicional"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Foto de tu documento, captura 15 · My Komatsu se consulta como referencia adicional",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Foto de tu documento, captura 15 · My Komatsu se consulta como referencia adicional",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/o3ipkruh",
+      "id": "4",
+      "name": "07",
+      "bbox": [
+        1182,
+        674,
+        50,
+        28
+      ],
+      "geometry": "rect",
+      "text": "07",
+      "textPreview": "07",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "07"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "07",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "07",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/c3itojy9",
+      "id": "5",
+      "bbox": [
+        48,
+        172,
+        790,
+        465
+      ],
+      "alt": "image15.jpeg",
+      "contentType": "image/jpeg",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "c8096f89-c629-402a-8259-9cb9d297e550",
+        "contentType": "image/jpeg",
+        "byteLength": 140009
+      }
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2107ihcb",
+      "id": "6",
+      "name": "En tu fotografía",
+      "bbox": [
+        876,
+        182,
+        355,
+        38
+      ],
+      "geometry": "rect",
+      "text": "En tu fotografía",
+      "textPreview": "En tu fotografía",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "En tu fotografía"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "En tu fotografía",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "En tu fotografía",
+              "fontSize": 28,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/n29obmdw",
+      "id": "7",
+      "name": "Se observan utilización, disponibilidad y barras de estados.",
+      "bbox": [
+        876,
+        227,
+        355,
+        100
+      ],
+      "geometry": "rect",
+      "text": "Se observan utilización, disponibilidad y barras de estados.",
+      "textPreview": "Se observan utilización, disponibilidad y barras de estados.",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Se observan utilización,"
+          },
+          {
+            "index": 2,
+            "text": "disponibilidad y barras de estados."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Se observan utilización, disponibilidad y barras de estados.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Se observan utilización, disponibilidad y barras de estados.",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8zmpwvul",
+      "id": "8",
+      "name": "Tomar la idea",
+      "bbox": [
+        876,
+        333,
+        355,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Tomar la idea",
+      "textPreview": "Tomar la idea",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tomar la idea"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tomar la idea",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tomar la idea",
+              "fontSize": 28,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9kvqp0v6",
+      "id": "9",
+      "name": "Una línea de tiempo permite ubicar interrupciones del turno.",
+      "bbox": [
+        876,
+        378,
+        355,
+        100
+      ],
+      "geometry": "rect",
+      "text": "Una línea de tiempo permite ubicar interrupciones del turno.",
+      "textPreview": "Una línea de tiempo permite ubicar interrupciones del turno.",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Una línea de tiempo permite ubicar"
+          },
+          {
+            "index": 2,
+            "text": "interrupciones del turno."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Una línea de tiempo permite ubicar interrupciones del turno.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Una línea de tiempo permite ubicar interrupciones del turno.",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/14nq58fe",
+      "id": "10",
+      "name": "Cuidar el cálculo",
+      "bbox": [
+        876,
+        484,
+        355,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Cuidar el cálculo",
+      "textPreview": "Cuidar el cálculo",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Cuidar el cálculo"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Cuidar el cálculo",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Cuidar el cálculo",
+              "fontSize": 28,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/03e9c3e9",
+      "id": "11",
+      "name": "Disponibilidad requiere tiempos y causas; no basta con estar cone",
+      "bbox": [
+        876,
+        529,
+        355,
+        100
+      ],
+      "geometry": "rect",
+      "text": "Disponibilidad requiere tiempos y causas; no basta con estar conectado.",
+      "textPreview": "Disponibilidad requiere tiempos y causas; no basta con estar conectado.",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Disponibilidad requiere tiempos y"
+          },
+          {
+            "index": 2,
+            "text": "causas; no basta con estar"
+          },
+          {
+            "index": 3,
+            "text": "conectado."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Disponibilidad requiere tiempos y causas; no basta con estar conectado.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Disponibilidad requiere tiempos y causas; no basta con estar conectado.",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

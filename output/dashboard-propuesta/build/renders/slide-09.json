@@ -1,0 +1,743 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/0gbgcv",
+    "id": "0gbgcv",
+    "slide": 9,
+    "layoutId": "fad47a1b-004c-4ca2-b025-e94d40d04b0c",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "1bea8d05-957a-4326-a0ac-4e2ff01c6977",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "fad47a1b-004c-4ca2-b025-e94d40d04b0c",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "1bea8d05-957a-4326-a0ac-4e2ff01c6977",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "1bea8d05-957a-4326-a0ac-4e2ff01c6977",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jmdofa9c",
+      "id": "1",
+      "name": "REFERENCIA VISUAL",
+      "bbox": [
+        48,
+        25,
+        1150,
+        24
+      ],
+      "geometry": "rect",
+      "text": "REFERENCIA VISUAL",
+      "textPreview": "REFERENCIA VISUAL",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#087F86",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "REFERENCIA VISUAL"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "REFERENCIA VISUAL",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#087F86",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "REFERENCIA VISUAL",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#087F86",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4nm5ovax",
+      "id": "2",
+      "name": "MS4M: salud por equipo y por sistema",
+      "bbox": [
+        48,
+        69,
+        1184,
+        73
+      ],
+      "geometry": "rect",
+      "text": "MS4M: salud por equipo y por sistema",
+      "textPreview": "MS4M: salud por equipo y por sistema",
+      "resolvedFontSize": 48,
+      "resolvedTextStyle": {
+        "fontSize": 48,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "MS4M: salud por equipo y por sistema"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "MS4M: salud por equipo y por sistema",
+          "resolvedTextStyle": {
+            "fontSize": 48,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "MS4M: salud por equipo y por sistema",
+              "fontSize": 48,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5of6h0r2",
+      "id": "3",
+      "name": "Foto de tu documento, captura 12 · Referencia pública complementa",
+      "bbox": [
+        48,
+        674,
+        1110,
+        30
+      ],
+      "geometry": "rect",
+      "text": "Foto de tu documento, captura 12 · Referencia pública complementaria: MS4M H4M",
+      "textPreview": "Foto de tu documento, captura 12 · Referencia pública complementaria: MS4M H4M",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Foto de tu documento, captura 12 · Referencia pública complementaria: MS4M H4M"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Foto de tu documento, captura 12 · Referencia pública complementaria: MS4M H4M",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Foto de tu documento, captura 12 · Referencia pública complementaria: MS4M H4M",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ah4nilsf",
+      "id": "4",
+      "name": "09",
+      "bbox": [
+        1182,
+        674,
+        50,
+        28
+      ],
+      "geometry": "rect",
+      "text": "09",
+      "textPreview": "09",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "09"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "09",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "09",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/y18fmxc7",
+      "id": "5",
+      "bbox": [
+        48,
+        172,
+        790,
+        465
+      ],
+      "alt": "image12.jpeg",
+      "contentType": "image/jpeg",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "b7dda2b7-88e8-4640-9d57-411831e5dfa7",
+        "contentType": "image/jpeg",
+        "byteLength": 116703
+      }
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wjm5kval",
+      "id": "6",
+      "name": "En tu fotografía",
+      "bbox": [
+        876,
+        182,
+        355,
+        38
+      ],
+      "geometry": "rect",
+      "text": "En tu fotografía",
+      "textPreview": "En tu fotografía",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "En tu fotografía"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "En tu fotografía",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "En tu fotografía",
+              "fontSize": 28,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hkv6d0r6",
+      "id": "7",
+      "name": "Health 4Miners muestra flota y detalle lateral por sistema.",
+      "bbox": [
+        876,
+        227,
+        355,
+        100
+      ],
+      "geometry": "rect",
+      "text": "Health 4Miners muestra flota y detalle lateral por sistema.",
+      "textPreview": "Health 4Miners muestra flota y detalle lateral por sistema.",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Health 4Miners muestra flota y"
+          },
+          {
+            "index": 2,
+            "text": "detalle lateral por sistema."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Health 4Miners muestra flota y detalle lateral por sistema.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Health 4Miners muestra flota y detalle lateral por sistema.",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mtknelsj",
+      "id": "8",
+      "name": "Tomar la idea",
+      "bbox": [
+        876,
+        333,
+        355,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Tomar la idea",
+      "textPreview": "Tomar la idea",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tomar la idea"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tomar la idea",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tomar la idea",
+              "fontSize": 28,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nut47qt4",
+      "id": "9",
+      "name": "Abrir motor, frenos, transmisión o hidráulica sin perder el equip",
+      "bbox": [
+        876,
+        378,
+        355,
+        100
+      ],
+      "geometry": "rect",
+      "text": "Abrir motor, frenos, transmisión o hidráulica sin perder el equipo.",
+      "textPreview": "Abrir motor, frenos, transmisión o hidráulica sin perder el equipo.",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Abrir motor, frenos, transmisión o"
+          },
+          {
+            "index": 2,
+            "text": "hidráulica sin perder el equipo."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Abrir motor, frenos, transmisión o hidráulica sin perder el equipo.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Abrir motor, frenos, transmisión o hidráulica sin perder el equipo.",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/f2dc7ap4",
+      "id": "10",
+      "name": "Mejorar la lectura",
+      "bbox": [
+        876,
+        484,
+        355,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Mejorar la lectura",
+      "textPreview": "Mejorar la lectura",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Mejorar la lectura"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Mejorar la lectura",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Mejorar la lectura",
+              "fontSize": 28,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e14by58j",
+      "id": "11",
+      "name": "Separar salud, operación y conexión; no colorear toda la tarjeta.",
+      "bbox": [
+        876,
+        529,
+        355,
+        100
+      ],
+      "geometry": "rect",
+      "text": "Separar salud, operación y conexión; no colorear toda la tarjeta.",
+      "textPreview": "Separar salud, operación y conexión; no colorear toda la tarjeta.",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Separar salud, operación y"
+          },
+          {
+            "index": 2,
+            "text": "conexión; no colorear toda la tarjeta."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Separar salud, operación y conexión; no colorear toda la tarjeta.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Separar salud, operación y conexión; no colorear toda la tarjeta.",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

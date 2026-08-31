@@ -1,0 +1,1485 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/sxyate",
+    "id": "sxyate",
+    "slide": 27,
+    "layoutId": "fad47a1b-004c-4ca2-b025-e94d40d04b0c",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "1bea8d05-957a-4326-a0ac-4e2ff01c6977",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "fad47a1b-004c-4ca2-b025-e94d40d04b0c",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "1bea8d05-957a-4326-a0ac-4e2ff01c6977",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "1bea8d05-957a-4326-a0ac-4e2ff01c6977",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0beh87yp",
+      "id": "1",
+      "name": "PROPUESTA",
+      "bbox": [
+        48,
+        25,
+        1150,
+        24
+      ],
+      "geometry": "rect",
+      "text": "PROPUESTA",
+      "textPreview": "PROPUESTA",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#087F86",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PROPUESTA"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PROPUESTA",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#087F86",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PROPUESTA",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#087F86",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fa5gz2h4",
+      "id": "2",
+      "name": "Definir los KPI antes de publicarlos",
+      "bbox": [
+        48,
+        69,
+        1184,
+        73
+      ],
+      "geometry": "rect",
+      "text": "Definir los KPI antes de publicarlos",
+      "textPreview": "Definir los KPI antes de publicarlos",
+      "resolvedFontSize": 48,
+      "resolvedTextStyle": {
+        "fontSize": 48,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Definir los KPI antes de publicarlos"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Definir los KPI antes de publicarlos",
+          "resolvedTextStyle": {
+            "fontSize": 48,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Definir los KPI antes de publicarlos",
+              "fontSize": 48,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e9wz6xgj",
+      "id": "3",
+      "name": "Propuesta MINTRONICK · Reglas y datos de ejemplo por validar",
+      "bbox": [
+        48,
+        674,
+        1110,
+        30
+      ],
+      "geometry": "rect",
+      "text": "Propuesta MINTRONICK · Reglas y datos de ejemplo por validar",
+      "textPreview": "Propuesta MINTRONICK · Reglas y datos de ejemplo por validar",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Propuesta MINTRONICK · Reglas y datos de ejemplo por validar"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Propuesta MINTRONICK · Reglas y datos de ejemplo por validar",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Propuesta MINTRONICK · Reglas y datos de ejemplo por validar",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d8nyxszy",
+      "id": "4",
+      "name": "27",
+      "bbox": [
+        1182,
+        674,
+        50,
+        28
+      ],
+      "geometry": "rect",
+      "text": "27",
+      "textPreview": "27",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "27"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "27",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "27",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/s7eh47yd",
+      "id": "5",
+      "name": "Indicador",
+      "bbox": [
+        48,
+        166,
+        280,
+        40
+      ],
+      "geometry": "rect",
+      "text": "Indicador",
+      "textPreview": "Indicador",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "fontSize": 23,
+        "typeface": "Arial",
+        "color": "#087F86",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Indicador"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Indicador",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Arial",
+            "color": "#087F86",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Indicador",
+              "fontSize": 23,
+              "typeface": "Arial",
+              "color": "#087F86",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rm5gv2h8",
+      "id": "6",
+      "name": "Definición propuesta",
+      "bbox": [
+        348,
+        166,
+        475,
+        40
+      ],
+      "geometry": "rect",
+      "text": "Definición propuesta",
+      "textPreview": "Definición propuesta",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "fontSize": 23,
+        "typeface": "Arial",
+        "color": "#087F86",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Definición propuesta"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Definición propuesta",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Arial",
+            "color": "#087F86",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Definición propuesta",
+              "fontSize": 23,
+              "typeface": "Arial",
+              "color": "#087F86",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qlcf2x0n",
+      "id": "7",
+      "name": "Condición para mostrarlo",
+      "bbox": [
+        843,
+        166,
+        369,
+        40
+      ],
+      "geometry": "rect",
+      "text": "Condición para mostrarlo",
+      "textPreview": "Condición para mostrarlo",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "fontSize": 23,
+        "typeface": "Arial",
+        "color": "#087F86",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Condición para mostrarlo"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Condición para mostrarlo",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Arial",
+            "color": "#087F86",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Condición para mostrarlo",
+              "fontSize": 23,
+              "typeface": "Arial",
+              "color": "#087F86",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x47y9wzi",
+      "id": "8",
+      "name": "Ralentí (%)",
+      "bbox": [
+        48,
+        221,
+        276,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Ralentí (%)",
+      "textPreview": "Ralentí (%)",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ralentí (%)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ralentí (%)",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ralentí (%)",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/c3yhgryx",
+      "id": "9",
+      "name": "Horas en ralentí / horas de motor × 100",
+      "bbox": [
+        348,
+        221,
+        471,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Horas en ralentí / horas de motor × 100",
+      "textPreview": "Horas en ralentí / horas de motor × 100",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Horas en ralentí / horas de motor × 100"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Horas en ralentí / horas de motor × 100",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Horas en ralentí / horas de motor × 100",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6to7qt8z",
+      "id": "10",
+      "name": "Clasificación válida; denominador > 0",
+      "bbox": [
+        843,
+        221,
+        365,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Clasificación válida; denominador > 0",
+      "textPreview": "Clasificación válida; denominador > 0",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Clasificación válida; denominador > 0"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Clasificación válida; denominador > 0",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Clasificación válida; denominador > 0",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rux8zypk",
+      "id": "11",
+      "name": "Consumo del periodo",
+      "bbox": [
+        48,
+        303,
+        276,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Consumo del periodo",
+      "textPreview": "Consumo del periodo",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Consumo del periodo"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Consumo del periodo",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Consumo del periodo",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sv6ps3q5",
+      "id": "12",
+      "name": "Diferencia del contador acumulado (L)",
+      "bbox": [
+        348,
+        303,
+        471,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Diferencia del contador acumulado (L)",
+      "textPreview": "Diferencia del contador acumulado (L)",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Diferencia del contador acumulado (L)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Diferencia del contador acumulado (L)",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Diferencia del contador acumulado (L)",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/twfq187q",
+      "id": "13",
+      "name": "Tratar reinicios, vacíos y desbordes",
+      "bbox": [
+        843,
+        303,
+        365,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Tratar reinicios, vacíos y desbordes",
+      "textPreview": "Tratar reinicios, vacíos y desbordes",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tratar reinicios, vacíos y desbordes"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tratar reinicios, vacíos y desbordes",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tratar reinicios, vacíos y desbordes",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ip47mt83",
+      "id": "14",
+      "name": "Utilización (%)",
+      "bbox": [
+        48,
+        385,
+        276,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Utilización (%)",
+      "textPreview": "Utilización (%)",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Utilización (%)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Utilización (%)",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Utilización (%)",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jqdovypo",
+      "id": "15",
+      "name": "Horas operando / horas disponibles × 100",
+      "bbox": [
+        348,
+        385,
+        471,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Horas operando / horas disponibles × 100",
+      "textPreview": "Horas operando / horas disponibles × 100",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Horas operando / horas disponibles × 100"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Horas operando / horas disponibles × 100",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Horas operando / horas disponibles × 100",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4r6po3q9",
+      "id": "16",
+      "name": "Acordar estados y horas disponibles",
+      "bbox": [
+        843,
+        385,
+        365,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Acordar estados y horas disponibles",
+      "textPreview": "Acordar estados y horas disponibles",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Acordar estados y horas disponibles"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Acordar estados y horas disponibles",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Acordar estados y horas disponibles",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5sf6xo7e",
+      "id": "17",
+      "name": "Disponibilidad (%)",
+      "bbox": [
+        48,
+        467,
+        276,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Disponibilidad (%)",
+      "textPreview": "Disponibilidad (%)",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Disponibilidad (%)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Disponibilidad (%)",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Disponibilidad (%)",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2l87yd87",
+      "id": "18",
+      "name": "Horas disponibles / programadas × 100",
+      "bbox": [
+        348,
+        467,
+        471,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Horas disponibles / programadas × 100",
+      "textPreview": "Horas disponibles / programadas × 100",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Horas disponibles / programadas × 100"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Horas disponibles / programadas × 100",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Horas disponibles / programadas × 100",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3mh87ips",
+      "id": "19",
+      "name": "Plan de turnos y paradas registradas",
+      "bbox": [
+        843,
+        467,
+        365,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Plan de turnos y paradas registradas",
+      "textPreview": "Plan de turnos y paradas registradas",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Plan de turnos y paradas registradas"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Plan de turnos y paradas registradas",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Plan de turnos y paradas registradas",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z694za54",
+      "id": "20",
+      "name": "Cobertura (%)",
+      "bbox": [
+        48,
+        549,
+        276,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Cobertura (%)",
+      "textPreview": "Cobertura (%)",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Cobertura (%)"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Cobertura (%)",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Cobertura (%)",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/y503q5oj",
+      "id": "21",
+      "name": "Tiempo con datos válidos / esperado × 100",
+      "bbox": [
+        348,
+        549,
+        471,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Tiempo con datos válidos / esperado × 100",
+      "textPreview": "Tiempo con datos válidos / esperado × 100",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Tiempo con datos válidos / esperado × 100"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tiempo con datos válidos / esperado × 100",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Tiempo con datos válidos / esperado × 100",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/l8bm1kna",
+      "id": "22",
+      "name": "Cadencia y ventana definidas por señal",
+      "bbox": [
+        843,
+        549,
+        365,
+        74
+      ],
+      "geometry": "rect",
+      "text": "Cadencia y ventana definidas por señal",
+      "textPreview": "Cadencia y ventana definidas por señal",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Cadencia y ventana definidas por"
+          },
+          {
+            "index": 2,
+            "text": "señal"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Cadencia y ventana definidas por señal",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Cadencia y ventana definidas por señal",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

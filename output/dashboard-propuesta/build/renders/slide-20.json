@@ -1,0 +1,407 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/fpnbgv",
+    "id": "fpnbgv",
+    "slide": 20,
+    "layoutId": "fad47a1b-004c-4ca2-b025-e94d40d04b0c",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "1bea8d05-957a-4326-a0ac-4e2ff01c6977",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "fad47a1b-004c-4ca2-b025-e94d40d04b0c",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "1bea8d05-957a-4326-a0ac-4e2ff01c6977",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "1bea8d05-957a-4326-a0ac-4e2ff01c6977",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zexsjy14",
+      "id": "1",
+      "name": "DISEÑO CONCEPTUAL",
+      "bbox": [
+        48,
+        25,
+        1150,
+        24
+      ],
+      "geometry": "rect",
+      "text": "DISEÑO CONCEPTUAL",
+      "textPreview": "DISEÑO CONCEPTUAL",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#087F86",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "DISEÑO CONCEPTUAL"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "DISEÑO CONCEPTUAL",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#087F86",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "DISEÑO CONCEPTUAL",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#087F86",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0f6ts32p",
+      "id": "2",
+      "name": "Mapa general: ubicar y priorizar",
+      "bbox": [
+        48,
+        69,
+        1184,
+        73
+      ],
+      "geometry": "rect",
+      "text": "Mapa general: ubicar y priorizar",
+      "textPreview": "Mapa general: ubicar y priorizar",
+      "resolvedFontSize": 48,
+      "resolvedTextStyle": {
+        "fontSize": 48,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "bold": true,
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Mapa general: ubicar y priorizar"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Mapa general: ubicar y priorizar",
+          "resolvedTextStyle": {
+            "fontSize": 48,
+            "typeface": "Arial",
+            "color": "#14232D",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Mapa general: ubicar y priorizar",
+              "fontSize": 48,
+              "typeface": "Arial",
+              "color": "#14232D",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1gful8ja",
+      "id": "3",
+      "name": "Imagen conceptual generada con IA · Datos ilustrativos · No es un",
+      "bbox": [
+        48,
+        674,
+        1110,
+        30
+      ],
+      "geometry": "rect",
+      "text": "Imagen conceptual generada con IA · Datos ilustrativos · No es una aplicación funcional",
+      "textPreview": "Imagen conceptual generada con IA · Datos ilustrativos · No es una aplicación funcional",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Imagen conceptual generada con IA · Datos ilustrativos · No es una aplicación funcional"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Imagen conceptual generada con IA · Datos ilustrativos · No es una aplicación funcional",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Imagen conceptual generada con IA · Datos ilustrativos · No es una aplicación funcional",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mhobudkv",
+      "id": "4",
+      "name": "20",
+      "bbox": [
+        1182,
+        674,
+        50,
+        28
+      ],
+      "geometry": "rect",
+      "text": "20",
+      "textPreview": "20",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#53636D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "20"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "20",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#53636D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "20",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#53636D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/elwretov",
+      "id": "5",
+      "bbox": [
+        48,
+        150,
+        1184,
+        470
+      ],
+      "alt": "mock-2.png",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "d519d743-faba-429a-8a2b-5b7f19d64db0",
+        "contentType": "image/png",
+        "byteLength": 2148610
+      }
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/o36twn21",
+      "id": "6",
+      "name": "Mapa de flota para contexto global; recorrido individual para inv",
+      "bbox": [
+        48,
+        628,
+        1184,
+        36
+      ],
+      "geometry": "rect",
+      "text": "Mapa de flota para contexto global; recorrido individual para investigar un evento.",
+      "textPreview": "Mapa de flota para contexto global; recorrido individual para investigar un evento.",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#14232D",
+        "alignment": "left",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Mapa de flota para contexto global; recorrido individual para investigar un evento."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Mapa de flota para contexto global; recorrido individual para investigar un evento.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#14232D"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Mapa de flota para contexto global; recorrido individual para investigar un evento.",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#14232D"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

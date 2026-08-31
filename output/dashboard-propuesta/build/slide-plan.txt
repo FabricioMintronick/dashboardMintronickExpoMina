@@ -1,0 +1,37 @@
+1.  | VISIÓN DE PRODUCTO
+2. Primero la decisión, después el gráfico | PROPUESTA
+3. Tu vista actual sirve para diagnóstico | REFERENCIA VISUAL
+4. El panel necesita contexto y prioridad | REFERENCIA VISUAL
+5. Todas tus capturas tienen un destino | ANÁLISIS DEL DOCUMENTO
+6. Qué aportan las empresas de referencia | REFERENCIAS DEL SECTOR
+7. Komatsu: mirar el uso en el tiempo | REFERENCIA VISUAL
+8. VisionLink conecta información y tareas | REFERENCIA VISUAL
+9. MS4M: salud por equipo y por sistema | REFERENCIA VISUAL
+10. La producción necesita más que GPS | REFERENCIAS DEL SECTOR
+11. Un menú organizado por trabajo | PROPUESTA
+12. Tres páginas que añaden valor | PROPUESTA
+13. Resumen: entrar por las prioridades | DISEÑO CONCEPTUAL
+14. Equipos: encontrar, comparar y abrir | PROPUESTA
+15. Equipo: dato, límite y acción | DISEÑO CONCEPTUAL
+16. Cada indicador debe responder algo | PROPUESTA
+17. El color debe tener una sola intención | PROPUESTA
+18. Velocidad: subir no siempre es peligroso | PROPUESTA
+19. Las reglas evitan alarmas engañosas | PROPUESTA
+20. Mapa general: ubicar y priorizar | DISEÑO CONCEPTUAL
+21. Dos mapas, dos preguntas distintas | PROPUESTA
+22. Historial: explicar lo que ocurrió | DISEÑO CONCEPTUAL
+23. Elegir el gráfico según la pregunta | PROPUESTA
+24. Alertas: del aviso a la atención | PROPUESTA
+25. Mantenimiento: anticipar y coordinar | PROPUESTA
+26. Reportes que un cliente pueda usar | PROPUESTA
+27. Definir los KPI antes de publicarlos | PROPUESTA
+28. Calidad de datos: parte del producto | PROPUESTA
+29. Implementar por valor y por evidencia | PROPUESTA
+30. Cómo comprobar si la propuesta funciona | PROPUESTA
+31. Un límite convierte una curva en evidencia | EJEMPLO DE GRÁFICO
+32. Mapa, selector e historial ya existen | ANEXO · TUS REFERENCIAS
+33. Tendencias útiles, sin ruido visual | ANEXO · TUS REFERENCIAS
+34. Operación y producción: una fase futura | ANEXO · TUS REFERENCIAS
+35. Salud e informes necesitan contexto | ANEXO · TUS REFERENCIAS
+36. Fuentes para profundizar | ANEXO · FUENTES
+37. La propuesta a validar contigo | DECISIÓN DE DISEÑO

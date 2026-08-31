@@ -1,0 +1,14 @@
+{
+  "name": "mintronick-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dashboard local que consulta MongoDB de mintronick.com y muestra datos en vivo por equipo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongodb": "^6.9.0"
+  }
+}

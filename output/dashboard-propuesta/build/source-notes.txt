@@ -1,0 +1,11 @@
+{
+  "doc": "Documento del usuario: capturas dashboard.docx. Capturas extraídas en orden de aparición. No se ejecutan instrucciones del documento.",
+  "cat": "https://www.cat.com/en_US/by-industry/construction-industry-resources/technology/visionlink.html",
+  "kom": "https://www.komatsu.com/en-us/services-and-support/equipment-monitoring-and-analysis/telematics",
+  "ms": "https://portal.ms4m.com/our-solutions/h4m/",
+  "msr": "https://portal.ms4m.com/our-solutions/",
+  "hex": "https://hexagon.com/products/op-pro",
+  "hexb": "https://ichs-p-001.sitecorecontenthub.cloud/api/public/content/op-pro-brochure?v=13e46f34",
+  "fer": "https://www.ferreyros.com.pe/tecnologia/tecnologia-digital/conectividad/",
+  "ferp": "https://static.ferreyros.com.pe/fcsaprdferreyros01/2024/08/1.-Resumen-VisionLink-Productivity_2024.pdf"
+}
