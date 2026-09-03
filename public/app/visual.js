@@ -96,7 +96,7 @@ export function homeView(page, { items, fleet, panel }) {
 }
 
 function dial(metric, max, label) {
-  if(metric.quality!=='fresh'||!Number.isFinite(metric.value))return '';
+  if(metric?.quality!=='fresh'||!Number.isFinite(metric?.value))return `<article class="dial-card dial-card-missing"><small>${e(label)}</small><div class="gauge-ring gauge-ring-missing" role="img" aria-label="${e(label)}: sin lectura vigente"><div><strong>—</strong><span>Sin lectura</span></div></div><p>Sin lectura vigente</p></article>`;
   const value=metric.value,pct=safePercent(value/max*100);
   return `<article class="dial-card"><small>${e(label)}</small><div class="gauge-ring" style="--percent:${pct}%;--gauge-color:${colors.teal}" role="img" aria-label="${e(label)} actual: ${number(value)} ${e(metric.unit)}"><div><strong>${number(value)}</strong><span>${e(metric.unit)}</span></div></div><span class="dial-info" title="Escala visual 0–${max}; no es límite de seguridad">ⓘ</span></article>`;
 }

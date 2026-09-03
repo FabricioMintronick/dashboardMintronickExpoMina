@@ -5,7 +5,7 @@ import {escape as e,number,date,state} from './format.js';
 import {icon,openEquipment} from './ui.js';
 
 export function commandCenter(page,{items}){
-  let current=items,map=null,markers=null,attentionMode='alarm',themeObserver=null,lastKpis='',lastMapSignature='',lastListSignature='',openPopupId=null,selectedId=null;const markerById=new Map();
+  let current=items,map=null,markers=null,attentionMode='alarm',themeObserver=null,mapResizeObserver=null,lastKpis='',lastMapSignature='',lastListSignature='',openPopupId=null,selectedId=null;const markerById=new Map();
   const stateInfo=item=>{const [key,label,,color]=stateDefinitions[operationalStateIndex(item)];return {key,label,color};};
   page.innerHTML=`<div id="command-kpis"></div><div class="command-map-row"><section class="panel home-map-panel"><div class="panel-head"><h2>Ubicación</h2><div class="home-map-buttons"><button class="button secondary" id="home-zone">Zona principal</button><button class="button secondary" id="home-all">Toda la flota</button><button class="button secondary" id="home-map-full" aria-label="Ampliar mapa">⛶</button></div></div><div class="home-map-layout"><div class="home-map-list" id="home-map-list" aria-label="Equipos en el mapa"></div><div id="command-map"></div></div><div id="home-map-caption" class="command-map-caption"></div></section><section class="panel attention-panel"><div class="panel-head"><h2>Atención por equipo</h2><a class="pill-link" href="#alerts">Ver alertas →</a></div><div class="attention-tabs" role="group" aria-label="Motivo de atención"><button data-attention="alarm">${icon('alerts')} Alarmas <b></b></button><button data-attention="offline">${icon('signal')} Sin comunicación <b></b></button></div><div id="command-attention"></div></section></div>`;
 
@@ -21,7 +21,7 @@ export function commandCenter(page,{items}){
     map=L.map('command-map',{scrollWheelZoom:true,zoomControl:true}).setView([-12,-77],5);
     const light=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}),dark=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',{maxZoom:16,attribution:'Sources: Esri, HERE, Garmin, © OpenStreetMap contributors'});
     const applyTheme=()=>{if(baseTiles)map.removeLayer(baseTiles);baseTiles=(document.documentElement.dataset.theme==='dark'?dark:light).addTo(map);};
-    applyTheme();themeObserver=new MutationObserver(applyTheme);themeObserver.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});markers=L.layerGroup().addTo(map);L.control.scale({imperial:false}).addTo(map);
+    applyTheme();themeObserver=new MutationObserver(applyTheme);themeObserver.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});markers=L.layerGroup().addTo(map);L.control.scale({imperial:false}).addTo(map);if(window.ResizeObserver){let resizeFrame=0;mapResizeObserver=new ResizeObserver(()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>map?.invalidateSize({pan:false}));});mapResizeObserver.observe(page.querySelector('.home-map-layout'));}
   }
   const located=()=>current.filter(item=>item.location);
   function fit(list){if(map&&list.length)map.fitBounds(list.map(item=>[item.location.lat,item.location.lon]),{padding:[45,45],maxZoom:16});}
@@ -47,5 +47,5 @@ export function commandCenter(page,{items}){
   const click=event=>{const tab=event.target.closest('[data-attention]');if(tab){attentionMode=tab.dataset.attention;renderAttention();}};page.addEventListener('click',click);
   function update(next,initial=false){current=next;const html=overviewCards(next).replace('En comunicación','Con datos').replace('Ubicación reciente','GPS vigente');if(html!==lastKpis){page.querySelector('#command-kpis').innerHTML=html;lastKpis=html;}renderAttention();drawList();const mapSignature=next.map(item=>`${item.id}:${item.location?.lat}:${item.location?.lon}:${stateInfo(item).key}`).join('|');if(initial||mapSignature!==lastMapSignature){lastMapSignature=mapSignature;drawMap();}if(initial)zone();}
   update(items,true);
-  const stop=()=>{themeObserver?.disconnect();map?.remove();page.removeEventListener('click',click);document.removeEventListener('fullscreenchange',syncFullscreen);};stop.update=update;return stop;
+  const stop=()=>{themeObserver?.disconnect();mapResizeObserver?.disconnect();map?.remove();page.removeEventListener('click',click);document.removeEventListener('fullscreenchange',syncFullscreen);};stop.update=update;return stop;
 }
