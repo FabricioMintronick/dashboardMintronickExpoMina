@@ -1,0 +1,15 @@
+import {escape as e,number} from './format.js';
+export function overviewCards(items){
+  const total=items.length,recent=items.filter(i=>i.communication==='fresh').length,gps=items.filter(i=>i.location?.quality==='fresh').length,alarms=items.filter(i=>i.alarms.some(a=>a.quality==='fresh')).length;
+  const pct=n=>total?n/total*100:0;
+  const ring=(n,cls)=>`<div class="mini-ring ${cls}" style="--ratio:${pct(n)}%" aria-hidden="true"><span>${number(pct(n))}<small>%</small></span></div>`;
+  const mosaic=`<div class="fleet-mosaic" aria-hidden="true">${items.slice(0,60).map(()=>'<i></i>').join('')}</div>`;
+  return `<div class="visual-kpis graphic-kpis"><a href="#equipment" class="graphic-kpi fleet"><div><small>Flota registrada</small><strong>${total}<em>equipos</em></strong></div>${mosaic}</a><a href="#equipment?filter=fresh" class="graphic-kpi connected"><div><small>En comunicación</small><strong>${recent}<em>de ${total}</em></strong></div>${ring(recent,'communication-ring')}</a><button data-notifications class="graphic-kpi alarms"><div><small>Con alarma reportada</small><strong>${alarms}<em>de ${total}</em></strong></div><div class="alarm-fraction" aria-hidden="true"><b>${number(pct(alarms))}%</b><div>${items.map((_,i)=>`<i class="${i<alarms?'marked':''}"></i>`).join('')}</div></div></button><a href="#map?filter=fresh" class="graphic-kpi gps"><div><small>Ubicación reciente</small><strong>${gps}<em>de ${total}</em></strong></div>${ring(gps,'gps-ring')}</a></div>`;
+}
+export function stateOverview(items){
+  const defs=[['working','Operando','Movimiento o trabajo reportado','#1a9a9b'],['idle','Ralentí','Motor activo sin trabajo','#fecc16'],['stopped','Detenido','Con comunicación, sin trabajo','#5f86a4'],['offline','Sin conexión','Sin señales recientes','#879b91']];
+  const counts=Object.fromEntries(defs.map(([key])=>[key,0]));
+  for(const i of items){if(i.communication!=='fresh'){counts.offline++;continue;}const rpm=i.metrics?.rpm,speed=i.metrics?.speed,load=i.metrics?.load,raw=String(i.state?.value||'').toLowerCase(),engine=rpm?.quality==='fresh'&&Number(rpm.value)>300,moving=speed?.quality==='fresh'&&Number(speed.value)>1,working=load?.quality==='fresh'&&Number(load.value)>20;if(engine&&(moving||working||i.state?.quality==='fresh'&&raw==='duty'))counts.working++;else if(engine||i.state?.quality==='fresh'&&raw==='idle')counts.idle++;else counts.stopped++;}
+  const total=items.length;
+  return `<div class="state-explainer"><div class="state-headline"><strong>${total}</strong><span>equipos clasificados</span></div><div class="state-strip" role="img" aria-label="${e(defs.map(([key,label])=>`${label}: ${counts[key]}`).join(', '))}">${defs.map(([key,,,color])=>`<span style="width:${total?counts[key]/total*100:0}%;background:${color}"></span>`).join('')}</div><div class="state-rows">${defs.map(([key,label,note,color])=>`<a href="#equipment?state=${key}" class="state-row"><i style="background:${color}"></i><div><strong>${label}</strong><small>${note}</small></div><b>${counts[key]}<small>${number(total?counts[key]/total*100:0)}%</small></b><span>↗</span></a>`).join('')}</div></div>`;
+}

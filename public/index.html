@@ -5,9 +5,21 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>MINTRONICK · Operaciones</title>
   <meta name="description" content="Supervisión de equipos, ubicación e información operativa con trazabilidad del dato.">
+  <meta name="theme-color" content="#103740">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="/manifest.webmanifest">
   <link rel="stylesheet" href="/app/styles.css">
   <link rel="stylesheet" href="/app/visual.css">
   <link rel="stylesheet" href="/app/interactions.css">
+  <link rel="stylesheet" href="/app/refinement.css">
+  <link rel="stylesheet" href="/app/exhibition.css">
+  <link rel="stylesheet" href="/app/home-refinement.css">
+  <link rel="stylesheet" href="/app/home-compact.css">
+  <link rel="stylesheet" href="/app/theme.css?v=20260903-2">
+  <link rel="stylesheet" href="/app/mobile-production.css?v=20260902-5">
+  <link rel="stylesheet" href="/app/tablet-visibility.css?v=20260903-6">
+  <link rel="stylesheet" href="/app/dashboard-v2.css?v=20260903-1">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script defer src="https://unpkg.com/chart.js@4.4.8/dist/chart.umd.js"></script>
@@ -16,17 +28,16 @@
 <body>
   <a class="skip" href="#content">Saltar al contenido</a>
   <aside class="sidebar">
-    <a class="brand" href="#home"><img src="/assets/mintronick-brand.png" alt="MinTronick"></a>
-    <div class="workspace"><span class="workspace-icon">▦</span><div>Supervisión de flota<small>Entorno local · Desarrollo</small></div></div>
-    <span class="nav-label">ESPACIO DE TRABAJO</span>
+    <a class="brand" href="#home"><img src="/assets/LOGO_Transparente.png" alt="MinTronick"></a>
+    <div class="workspace"><span class="workspace-icon">▦</span><div>Supervisión de flota</div></div>
     <nav aria-label="Navegación principal" id="navigation"></nav>
-    <div class="sidebar-bottom"><a href="/tecnico.html">↗ Vista técnica anterior</a><p>Primera entrega<br><strong>Control de flota y telemetría.</strong></p></div>
+    <div class="sidebar-bottom" id="session-actions"></div>
   </aside>
   <div class="shell">
-    <header class="topbar"><span id="breadcrumb">Operaciones / Inicio</span><div><span class="local-badge">● LOCAL</span><span class="avatar" aria-label="Vista local sin autenticación">MT</span></div></header>
+    <header class="topbar"><span id="breadcrumb">Operaciones / Inicio</span><div class="topbar-controls"></div></header>
     <main id="content" tabindex="-1">
-      <div class="page-heading"><div><span class="eyebrow">FLEET INTELLIGENCE</span><h1 id="page-title">Resumen de flota</h1><p id="page-description">Una vista clara de tus equipos y de la información que necesita atención.</p></div><button id="refresh" class="button secondary">↻ Actualizar</button></div>
-      <div id="connection" role="status" class="connection">Consultando la fuente de datos…</div>
+      <div class="page-heading"><div><span class="eyebrow">FLEET INTELLIGENCE</span><h1 id="page-title">Resumen de flota</h1><p id="page-description">Una vista clara de tus equipos y de la información que necesita atención.</p></div></div>
+      <div id="connection" role="status" class="connection sr-only">Consultando la fuente de datos…</div>
       <div id="page"></div>
       <footer><span>MINTRONICK / Monitoreo de equipos</span><span>Los datos atrasados no representan el estado actual.</span></footer>
     </main>

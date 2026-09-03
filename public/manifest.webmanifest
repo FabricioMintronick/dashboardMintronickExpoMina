@@ -1,0 +1,15 @@
+{
+  "name": "MINTRONICK Operaciones",
+  "short_name": "MINTRONICK",
+  "id": "/",
+  "start_url": "/#home",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f7f8",
+  "theme_color": "#103740",
+  "orientation": "any",
+  "description": "Monitoreo operativo de la flota MINTRONICK.",
+  "icons": [
+    {"src":"/assets/pwa-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}

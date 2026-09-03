@@ -1,15 +1,42 @@
-import { icon, openEquipment, toggleSound, observeAlarms } from './ui.js';
+import {setupTheme} from './theme.js';
+import {commandCenter} from './home-dashboard.js';
+import {operationalStateIndex,stateDefinitions} from './home-insights.js';
+import { icon, openEquipment, openNotifications, observeAlarms } from './ui.js';
 import { homeView, detailView, equipmentCards } from './visual.js';
+import {fleetAnalytics} from './analytics.js';
 import { getJSON } from './api.js';
+import './pwa.js';
 import { escape as e, number, date, age, badge, quality, state, condition } from './format.js';
+function chartTextSize() {
+  return window.innerWidth <= 900 ? 14 : window.innerWidth <= 1366 ? 12 : 11;
+}
+function applyChartTextSize() {
+  if (!window.Chart) return;
+  const size = chartTextSize();
+  Chart.defaults.font.size = size;
+  Chart.defaults.plugins.tooltip.titleFont = { size: size + 1, weight: 'bold' };
+  Chart.defaults.plugins.tooltip.bodyFont = { size };
+  Object.values(Chart.instances || {}).forEach(chart => {
+    chart.options.font = { ...(chart.options.font || {}), size };
+    chart.resize();
+    chart.update('none');
+  });
+}
+applyChartTextSize();
+let chartResizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(chartResizeTimer);
+  chartResizeTimer = setTimeout(applyChartTextSize, 180);
+});
 const routes = {
-  home: ['⌂','Inicio','Resumen de flota','Supervisión de tu flota y telemetría.'],
-  equipment: ['▦','Equipos','Tus equipos','Selecciona un equipo para explorar su telemetría.'],
-  map: ['⌖','Mapa GPS','Ubicación de la flota','Tu flota en el terreno.'],
-  alerts: ['△','Alertas','Alarmas reportadas','Última evidencia recibida de los equipos.'],
-  history: ['◷','Historial','Explorar el historial','Consulta una señal y un periodo. Los vacíos se muestran como falta de información.'],
-  reports: ['▤','Reportes','Reporte de situación','Exporta una fotografía de la flota con valores, fechas y calidad del dato.'],
-  maintenance: ['⚒','Mantenimiento','Planificación de mantenimiento','Horómetros disponibles y requisitos para activar planes preventivos.']
+  home: ['⌂','Inicio','Centro de control'],
+  equipment: ['▦','Equipos','Tus equipos',''],
+  map: ['⌖','Mapa GPS','Ubicación de la flota',''],
+  alerts: ['△','Alertas','Alarmas reportadas',''],
+  history: ['◷','Historial','Explorar el historial'],
+  reports: ['▤','Reportes','Centro de reportes'],
+  install: ['⇩','Aplicación','Instalar aplicación','Instala el dashboard en una tablet o computadora.']
+  /*maintenance: ['⚒','Mantenimiento','Planificación de mantenimiento','Horómetros disponibles y requisitos para activar planes preventivos.']*/
 };
 const iconMarkup = icon;
 const page = document.querySelector('#page');
@@ -33,25 +60,27 @@ function compactExplanations() {
     note.replaceWith(details); details.append(summary, note);
   });
 }
-function home() { cleanup = homeView(page, { items: assets(), fleet, panel }); }
+function home() { cleanup = commandCenter(page, { items: assets(), fleet, panel }); }
 function equipment() {
-  let cards = true;
-  page.innerHTML = `<div class="toolbar"><label class="grow">Buscar equipo<input id="search" type="search" placeholder="Nombre, modelo o gateway…"></label><label>Comunicación<select id="filter"><option value="all">Todos los equipos</option><option value="fresh">Con datos recientes</option><option value="old">Sin datos recientes</option><option value="alarm">Con alarma en última lectura</option></select></label><label class="check"><input id="tests" type="checkbox"> Incluir pruebas</label></div><div class="fleet-section-heading"><h2>Directorio de equipos</h2><button class="button secondary" id="toggle-equipment-view">Ver lista</button></div><div id="equipment-table"></div>`;
+  let model='all',lastDirectorySignature='';
+  page.innerHTML = `<div class="toolbar"><label class="grow">Buscar equipo<input id="search" type="search" placeholder="Nombre, modelo o gateway…"></label></div><div class="fleet-section-heading"><h2>Directorio de equipos</h2></div><div id="equipment-table"></div>`;
   const draw = () => {
-    const query = document.querySelector('#search').value.toLowerCase(), filter = document.querySelector('#filter').value;
+    const query = document.querySelector('#search').value.toLowerCase();
     const stateFilter = new URLSearchParams(location.hash.split('?')[1]).get('state');
-    const items = fleet.equipment.filter(i => (!i.test || document.querySelector('#tests').checked) && `${i.name} ${i.model} ${i.gateway}`.toLowerCase().includes(query) && (!stateFilter || (stateFilter==='unknown' ? i.state.quality!=='fresh' : i.state.quality==='fresh' && String(i.state.value).toLowerCase()===stateFilter)) && (filter === 'all' || filter === 'fresh' && i.communication === 'fresh' || filter === 'old' && i.communication !== 'fresh' || filter === 'alarm' && i.alarms.length));
-    document.querySelector('#equipment-table').innerHTML = cards ? equipmentCards(items) : '<section class="panel">'+equipmentTable(items)+'</section>';
+    const items = assets().filter(i => (model==='all'||i.model===model) && `${i.name} ${i.model} ${i.gateway}`.toLowerCase().includes(query) && (!stateFilter || stateDefinitions[operationalStateIndex(i)][0]===stateFilter));
+    const signature=items.map(i=>`${i.id}:${i.communication}:${i.state?.value}:${i.state?.since}:${i.metrics.hours.value}:${i.metrics.fuel.value}:${i.alarms.length}:${i.alarmQuality}`).join('|');
+    if(signature!==lastDirectorySignature){document.querySelector('#equipment-table').innerHTML = equipmentCards(items);lastDirectorySignature=signature;}
   };
-  document.querySelector('#toggle-equipment-view').addEventListener('click',event=>{cards=!cards;event.target.textContent=cards?'Ver lista':'Ver tarjetas';draw();});
-  document.querySelector('#filter').value=new URLSearchParams(location.hash.split('?')[1]).get('filter')||'all';
-  ['search','filter','tests'].forEach(id => document.getElementById(id).addEventListener('input',draw)); draw();
+  document.querySelector('#search').addEventListener('input',draw); draw();
+  const overview=document.createElement('div');overview.className='directory-overview';page.prepend(overview);const pills=document.createElement('div');pills.className='preset-row';overview.after(pills);pills.innerHTML='<button data-model="all">Todos los modelos</button>'+[...new Set(assets().map(i=>i.model))].map(m=>'<button data-model="'+e(m)+'">'+e(m)+'</button>').join('');pills.onclick=event=>{const b=event.target.closest('[data-model]');if(b){model=b.dataset.model;pills.querySelectorAll('button').forEach(x=>x.classList.toggle('selected',x===b));draw();}};const summary=()=>overview.innerHTML='<span><b>'+assets().length+'</b> equipos</span><span><b>'+assets().filter(i=>i.communication==='fresh').length+'</b> con datos</span><span><b>'+assets().filter(i=>i.alarms.some(a=>a.quality==='fresh')).length+'</b> con alarma vigente</span>';summary();cleanup=()=>{};cleanup.update=()=>{summary();draw();};
 }
 function detail(id) {
   const item=fleet.equipment.find(i=>i.id===id);
   if(!item){page.innerHTML='<div class="empty">Equipo no encontrado. <a href="#equipment">Volver</a></div>';return;}
   document.querySelector('#page-title').textContent=item.name;
-  document.querySelector('#page-description').textContent='Estado y telemetría del equipo';
+  const description=document.querySelector('#page-description');
+  description.hidden=false;
+  description.textContent='Estado y telemetría del equipo';
   cleanup=detailView(page,{item,panel});
 }
 async function render() {
@@ -59,16 +88,18 @@ async function render() {
   cleanup(); cleanup = () => {}; const version = ++routeVersion;
   const { route, id } = selection();
   document.querySelector('#page-title').textContent = routes[route][2];
-  document.querySelector('#page-description').textContent = routes[route][3];
+  const description=document.querySelector('#page-description');
+  description.textContent=routes[route][3]||'';
+  description.hidden=!routes[route][3];
   document.querySelector('#breadcrumb').textContent = `Operaciones / ${routes[route][1]}`;
-  if(fleet && !error) document.querySelector('#connection').textContent = `${date(fleet.generatedAt)} · ${route==='home'||route==='alerts'||route==='equipment'&&id ? 'Actualiza cada 15 s' : 'Vista a demanda · Avisos activos'}`;
+  if(fleet && !error) document.querySelector('#connection').textContent = 'Información actualizada automáticamente';
   document.querySelectorAll('[data-route]').forEach(a => {a.classList.toggle('active',a.dataset.route === route); if(a.dataset.route === route)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
   if (!fleet || error) { page.innerHTML = `<div class="error-box"><h2>${busy ? 'Preparando la información de tu flota' : 'No pudimos consultar los datos'}</h2><p>${e(error || 'La interfaz está conectando con la API. No se muestran equipos simulados.')}</p>${busy ? '' : '<button class="button secondary" id="retry">Reintentar consulta</button>'}</div>`; document.querySelector('#retry')?.addEventListener('click',()=>refresh(false)); return; }
   if(route==='home')home(); else if(route==='equipment') id ? detail(id) : equipment(); 
   else {
     page.innerHTML = '<div class="empty">Preparando vista…</div>';
     try {
-      const module = await import(`./${route==='map'?'map-explorer':route==='history'?'compare-history':route==='reports'?'report-explorer':route}.js`);
+      const module = await import(`./${route==='map'?'map-explorer':route==='history'?'compare-history':route==='reports'?'report-studio':route}.js`);
       if(version !== routeVersion)return;
       cleanup = await module.mount(page, { fleet, items:assets(), id, panel, equipmentTable, getJSON }) || (()=>{});
     } catch(err) { if(version===routeVersion)page.innerHTML=`<div class="error-box"><h2>No se pudo abrir esta vista</h2><p>${e(err.message)}</p></div>`; }
@@ -77,26 +108,37 @@ async function render() {
 }
 async function refresh(background = false) {
   if(busy)return; busy=true;
-  document.querySelector('#refresh').disabled=true;
   const status=document.querySelector('#connection'), previousStatus=status.textContent; if(!background)status.textContent='Consultando la fuente de datos…';
   if(!fleet)render();
-  try {fleet=await getJSON('/api/fleet');observeAlarms(fleet.equipment.filter(i=>!i.test));error=null;status.className='connection ok';status.textContent=`Consulta completada · ${date(fleet.generatedAt)} · Vigencia provisional: ${fleet.staleAfterSeconds} s · Actualización manual`;}
-  catch(err){error=err.message;status.className='connection error';status.textContent='Fuente no disponible · No se puede confirmar el estado de la flota';}
-  finally{busy=false;document.querySelector('#refresh').disabled=false;const r=selection();if(!background||r.route==='home'||r.route==='equipment'&&r.id)render();else if(!error)status.textContent=previousStatus;}
+  try {fleet=await getJSON('/api/fleet');observeAlarms(fleet.equipment.filter(i=>!i.test));error=null;status.className='connection sr-only ok';status.textContent='Información actualizada automáticamente';}
+  catch(err){error=err.message;status.className='connection sr-only error';status.textContent='Fuente de datos no disponible';}
+  finally{busy=false;if(!error){if(page.querySelector('.error-box')||!page.children.length)render();else {cleanup.update?.(assets());window.dispatchEvent(new CustomEvent('fleet-update',{detail:fleet}));}status.textContent='Información actualizada automáticamente';}else if(!fleet)render();}
 }
 window.addEventListener('hashchange',render);
-document.querySelector('#refresh').addEventListener('click',()=>refresh(false));
-setInterval(()=>{if(!document.hidden)refresh(true);},15000);
+let refreshTimer=null;
+function scheduleRefresh(){clearTimeout(refreshTimer);refreshTimer=setTimeout(async()=>{if(!document.hidden)await refresh(true);scheduleRefresh();},document.hidden?30000:5000);}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh(true);scheduleRefresh();});
+scheduleRefresh();
 
 
 const topbar=document.querySelector('.topbar');
-topbar.insertAdjacentHTML('afterbegin','<div class="nav-actions"><button id="nav-toggle" class="icon-button" aria-label="Contraer menú">'+icon('menu')+'</button><button id="back-button" class="icon-button" aria-label="Regresar">'+icon('back')+'<span>Regresar</span></button></div>');
-topbar.querySelector('div:last-child').insertAdjacentHTML('afterbegin','<a class="icon-button" href="#alerts" aria-label="Abrir alarmas">'+icon('bell')+'<b id="bell-count">0</b></a><button id="sound-toggle" class="button secondary" aria-pressed="false">Activar sonido</button>');
-document.querySelector('#nav-toggle').onclick=()=>document.body.classList.toggle('nav-collapsed');
+topbar.insertAdjacentHTML('afterbegin','<div class="nav-actions"><button id="nav-toggle" class="icon-button" aria-label="Abrir menú" aria-expanded="false">'+icon('menu')+'</button><button id="back-button" class="icon-button" aria-label="Regresar">'+icon('back')+'<span>Regresar</span></button></div><a class="mobile-brand" href="#home"><img src="/assets/LOGO_Transparente.png" alt="MinTronick"></a>');
+topbar.querySelector('.topbar-controls').insertAdjacentHTML('afterbegin','<button class="icon-button" data-notifications aria-label="Abrir alertas">'+icon('bell')+'<b id="bell-count">0</b></button>');
+const sessionActions=document.querySelector('#session-actions');
+sessionActions.innerHTML='<div class="sidebar-tools"><button class="sidebar-tool" id="fullscreen-toggle" aria-label="Activar pantalla completa">'+icon('fullscreen')+'<span>Pantalla completa</span></button></div><form method="post" action="/logout"><button class="sidebar-logout" type="submit"><span class="icon">'+icon('logout')+'</span><span>Cerrar sesión</span></button></form>';
+setupTheme(sessionActions.querySelector('.sidebar-tools'));
+const navToggle=document.querySelector('#nav-toggle');
+const closeMobileNav=()=>{document.body.classList.remove('mobile-nav-open');navToggle.setAttribute('aria-expanded','false');};
+navToggle.onclick=()=>{if(matchMedia('(max-width:900px)').matches){const open=document.body.classList.toggle('mobile-nav-open');navToggle.setAttribute('aria-expanded',String(open));}else document.body.classList.toggle('nav-collapsed');};
+document.querySelector('#navigation').addEventListener('click',closeMobileNav);
+document.addEventListener('click',event=>{if(document.body.classList.contains('mobile-nav-open')&&!event.target.closest('.sidebar,#nav-toggle'))closeMobileNav();});
 let previousHash=location.hash||'#home',returning=false;const visited=[];
-window.addEventListener('hashchange',()=>{if(!returning)visited.push(previousHash);returning=false;previousHash=location.hash;});
+window.addEventListener('hashchange',()=>{closeMobileNav();if(!returning)visited.push(previousHash);returning=false;previousHash=location.hash;});
 document.querySelector('#back-button').onclick=()=>{const target=visited.pop()||'#home';returning=true;location.hash=target;};
-document.querySelector('#sound-toggle').onclick=event=>{const on=toggleSound();event.currentTarget.textContent=on?'Sonido activo':'Activar sonido';event.currentTarget.setAttribute('aria-pressed',String(on));};
-document.addEventListener('click',event=>{const card=event.target.closest('.equipment-card, .fuel-bar-row, .compact-alert, [data-quick]');if(!card||event.ctrlKey||event.metaKey)return;const id=card.dataset.quick||decodeURIComponent(card.hash?.split('/')[1]||'');const item=fleet?.equipment.find(i=>i.id===id);if(item){event.preventDefault();openEquipment(item);}});
+const fullscreenButton=document.querySelector('#fullscreen-toggle');
+fullscreenButton.onclick=async()=>{try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen({navigationUI:'hide'});else await document.exitFullscreen();}catch{fullscreenButton.title='El navegador no permite pantalla completa en esta vista';}};
+document.addEventListener('fullscreenchange',()=>{const active=Boolean(document.fullscreenElement);fullscreenButton.setAttribute('aria-pressed',String(active));fullscreenButton.setAttribute('aria-label',active?'Salir de pantalla completa':'Activar pantalla completa');fullscreenButton.innerHTML=icon(active?'fullscreenExit':'fullscreen')+`<span class="control-label">${active?'':'Pantalla completa'}</span>`;window.dispatchEvent(new Event('resize'));});
+document.addEventListener('click',event=>{if(event.target.closest('[data-notifications]')){event.preventDefault();const trigger=event.target.closest('[data-notifications]'),item=assets().find(i=>i.id===trigger.dataset.notificationEquipment);if(item&&!item.alarms.length)openEquipment(item);else openNotifications(trigger.dataset.notificationEquipment);return;}const card=event.target.closest('.equipment-card, .fuel-bar-row, .compact-alert, [data-quick]');if(!card||event.ctrlKey||event.metaKey)return;const id=card.dataset.quick||decodeURIComponent(card.hash?.split('/')[1]||'');const item=fleet?.equipment.find(i=>i.id===id);if(item){event.preventDefault();openEquipment(item);}});
 
+document.addEventListener('keydown',event=>{const badge=event.target.closest('[data-notifications][role="button"]');if(badge&&['Enter',' '].includes(event.key)){event.preventDefault();badge.click();}});
 refresh();

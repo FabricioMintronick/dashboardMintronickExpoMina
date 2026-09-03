@@ -4,3 +4,13 @@ output/
 *.log
 .env
 .server_err.log
+
+*.tgz
+*.sh
+android-app/.gradle-cache/
+android-app/manual-build/
+android-app/android-36.jar
+*.keystore
+
+tests/
+docs/

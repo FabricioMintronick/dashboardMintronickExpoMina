@@ -1,9 +1,11 @@
 const express = require('express');
 const path = require('path');
+const os = require('node:os');
 const { MongoClient } = require('mongodb');
 const { execFile } = require('child_process');
+const {offsetLocation}=require('./domain/location-privacy');
 
-const { uri, MONGO_DB, COLLECTION, PORT, STALE_MS } = require('./config');
+const { uri, MONGO_DB, COLLECTION, PORT, STALE_MS, ALLOW_LAN, GPS_PRIVACY_ENABLED, GPS_LAT_OFFSET, GPS_LON_OFFSET, DASHBOARD_USER, DASHBOARD_PASSWORD, DASHBOARD_USERS, AUTH_SECRET, AUTH_COOKIE_SECURE } = require('./config');
 const POLL_MS = 2000;
 
 const app = express();
@@ -12,16 +14,18 @@ app.disable('x-powered-by');
 app.use((req, res, next) => { res.set('X-Content-Type-Options', 'nosniff'); res.set('Referrer-Policy', 'same-origin'); next(); });
 // This delivery has no tenant authentication: serve on loopback only and reject
 // untrusted Host headers to reduce DNS rebinding exposure on the local service.
-app.use((req, res, next) => ['127.0.0.1','localhost','[::1]'].includes(req.hostname) ? next() : res.status(403).end('Local access only'));
+app.use((req, res, next) => {const host=req.hostname;if(['127.0.0.1','localhost','[::1]'].includes(host)||ALLOW_LAN&&(/^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host)))return next();res.status(403).end('Local access only');});
+require('./auth').registerAuth(app,{users:Object.keys(DASHBOARD_USERS).length?DASHBOARD_USERS:DASHBOARD_USER?{[DASHBOARD_USER]:DASHBOARD_PASSWORD}:{},secret:AUTH_SECRET,secureCookie:AUTH_COOKIE_SECURE});
 app.use(express.static(path.join(__dirname, '..', 'public')));
+app.get('/mapa', (req,res)=>res.sendFile(path.join(__dirname,'..','public','mapa.html')));
 app.use((req, res, next) => {
   if (req.query.gateway !== undefined && (typeof req.query.gateway !== 'string' || req.query.gateway.length > 80)) return res.status(400).json({ error: 'Invalid gateway' });
   next();
 });
 require('./routes/fleet').registerFleetRoutes(app, { getDb: () => db, collection: COLLECTION,
-  getGateways: () => cachedGateways, catalog: require('./config/equipment.json'), staleMs: STALE_MS });
+  getGateways: () => cachedGateways, catalog: require('./config/equipment.json'), staleMs: STALE_MS, gpsPrivacyEnabled: GPS_PRIVACY_ENABLED, gpsLatOffset: GPS_LAT_OFFSET, gpsLonOffset: GPS_LON_OFFSET });
 require('./routes/history').registerHistoryRoutes(app, { getDb: () => db, collection: COLLECTION, staleMs: STALE_MS });
-require('./routes/track').registerTrackRoutes(app, { getDb: () => db, collection: COLLECTION });
+require('./routes/track').registerTrackRoutes(app, { getDb: () => db, collection: COLLECTION, gpsPrivacyEnabled: GPS_PRIVACY_ENABLED, gpsLatOffset: GPS_LAT_OFFSET, gpsLonOffset: GPS_LON_OFFSET });
 app.get('/api/health', (req, res) => res.json({ database: db ? 'connected' : 'unavailable', localOnly: true }));
 app.use('/api', (req, res, next) => db ? next() : res.status(503).json({ error: 'Base de datos no disponible' }));
 app.use('/events', (req, res, next) => db ? next() : res.status(503).end());
@@ -224,6 +228,10 @@ function cleanDoc(doc) {
   const payload = Object.assign({}, doc);
   delete payload._id;
   delete payload.__v;
+  if(payload.name==='LOCATION'){
+    const shifted=offsetLocation({lat:Number(payload.latitude),lon:Number(payload.longitude)},payload.gateway,GPS_PRIVACY_ENABLED,GPS_LAT_OFFSET,GPS_LON_OFFSET);
+    if(Number.isFinite(shifted?.lat)&&Number.isFinite(shifted?.lon)){payload.latitude=shifted.lat;payload.longitude=shifted.lon;}
+  }
   return payload;
 }
 
@@ -358,7 +366,7 @@ async function fetchTrackSeries(gateway, from, to, bucketMs) {
       .limit(RAW_POINTS_LIMIT)
       .toArray();
     return docs
-      .map((d) => ({ t: new Date(d.date).toISOString(), lat: parseFloat(d.latitude), lon: parseFloat(d.longitude), speed: parseFloat(d.speed) }))
+      .map((d) => offsetLocation({ t: new Date(d.date).toISOString(), lat: parseFloat(d.latitude), lon: parseFloat(d.longitude), speed: parseFloat(d.speed) },gateway,GPS_PRIVACY_ENABLED,GPS_LAT_OFFSET,GPS_LON_OFFSET))
       .filter((p) => !isNaN(p.lat) && !isNaN(p.lon));
   }
 
@@ -372,7 +380,7 @@ async function fetchTrackSeries(gateway, from, to, bucketMs) {
   ];
   const rows = await col.aggregate(pipeline).toArray();
   return rows
-    .map((r) => ({ t: new Date(r._id).toISOString(), lat: parseFloat(r.lat), lon: parseFloat(r.lon), speed: parseFloat(r.speed) }))
+    .map((r) => offsetLocation({ t: new Date(r._id).toISOString(), lat: parseFloat(r.lat), lon: parseFloat(r.lon), speed: parseFloat(r.speed) },gateway,GPS_PRIVACY_ENABLED,GPS_LAT_OFFSET,GPS_LON_OFFSET))
     .filter((p) => !isNaN(p.lat) && !isNaN(p.lon));
 }
 
@@ -451,7 +459,7 @@ app.get('/api/history/range', async (req, res) => {
 // ---------- fin Historial ----------
 
 async function main() {
-  const server = app.listen(PORT, '127.0.0.1', () => console.log('Dashboard: http://127.0.0.1:' + PORT));
+  const bind=ALLOW_LAN?'0.0.0.0':'127.0.0.1';const server = app.listen(PORT, bind, () => {const address=Object.values(os.networkInterfaces()).flat().find(info=>info?.family==='IPv4'&&!info.internal&&(/^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(info.address)))?.address||'IP-no-detectada';console.log(`Dashboard: http://${ALLOW_LAN?address:'127.0.0.1'}:${PORT}${ALLOW_LAN?'':''}`);});
   server.on('error', err => { console.error('No se pudo iniciar el servidor:', err.code); process.exit(1); });
   if (!uri) { console.warn('MONGO_URI no configurada: interfaz disponible sin datos.'); return server; }
   const client = new MongoClient(uri, { serverSelectionTimeoutMS: 8000 });

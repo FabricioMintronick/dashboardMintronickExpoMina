@@ -1,0 +1,142 @@
+/* Legibilidad para tablet: dos columnas en vertical y tres en horizontal. */
+.alarm-count{display:inline-flex!important;align-items:center;justify-content:center;gap:5px;min-width:46px;min-height:40px;padding:6px 9px!important;border-radius:12px!important;font-weight:800;line-height:1}
+.alarm-count .alarm-glyph{display:grid;place-items:center}.alarm-count .ui-icon{width:23px;height:23px;stroke-width:2.2}.alarm-count b{font-size:15px}
+.alarm-count.current{color:#fff!important;background:#c83e35!important;border:1px solid #a82d27!important;box-shadow:0 0 0 0 rgba(200,62,53,.48);animation:alarmAttention 1.55s ease-out infinite}
+.alarm-count.historical{color:#fff!important;background:#b84a42!important;border-color:#963a34!important}
+@keyframes alarmAttention{0%,45%{transform:scale(1);box-shadow:0 0 0 0 rgba(200,62,53,.48)}70%{transform:scale(1.05);box-shadow:0 0 0 9px rgba(200,62,53,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(200,62,53,0)}}
+
+/* Escritorio: cuatro tarjetas evita una última fila casi vacía con flotas de 16 equipos. */
+@media(min-width:1367px){.equipment-cards{grid-template-columns:repeat(4,minmax(0,1fr))!important}.equipment-card .machine-image{height:132px}.equipment-card{padding:20px}.equipment-card h3{font-size:21px}.machine-metrics strong{font-size:23px}.machine-metrics small,.machine-state .badge{font-size:12px}}
+
+@media(min-width:901px) and (max-width:1366px){
+ #content{padding:22px!important;max-width:none!important}.page-heading h1{font-size:30px!important}.page-heading p{font-size:14px!important}
+ .directory-overview{padding:18px 21px!important;font-size:15px;gap:18px!important}.directory-overview b{font-size:29px}.preset-row button{min-height:44px;padding:10px 17px!important;font-size:14px!important}.toolbar label{font-size:14px!important}.toolbar input,.toolbar select{min-height:48px!important;font-size:15px!important}
+ .equipment-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:15px!important}.equipment-card{padding:18px!important}.equipment-card .machine-image{height:138px!important;margin:4px auto 8px}.equipment-card h3{font-size:22px!important}.model-tag{font-size:11px}.signal-dot{width:12px;height:12px}.card-status-row{font-size:13px;margin-top:9px}.card-status-row b{width:34px;height:34px;font-size:18px}.card-status-row small{font-size:11px}.machine-state .badge{font-size:12px!important}.machine-metrics{gap:14px;margin-top:12px;padding-top:13px}.machine-metrics small{font-size:12px!important}.machine-metrics strong{font-size:23px!important}.machine-metrics em{font-size:12px}.fuel-track{height:8px;margin-top:13px}
+ .panel-head h2{font-size:19px!important}.panel-head p,.chart-caption,.comparison-stats{font-size:12px!important}.comparison-plot,.trend-plot{height:320px!important}.dial-card>small:first-child{font-size:14px}.gauge-ring{width:150px;height:150px}.gauge-ring strong{font-size:28px}
+}
+
+@media(min-width:901px) and (max-width:1100px){.equipment-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}.equipment-card .machine-image{height:155px!important}.sidebar{width:205px}.shell{margin-left:205px}}
+
+@media(max-width:900px){
+ .equipment-card{padding:18px!important}.equipment-card .machine-image{height:170px!important;margin:2px auto 8px}.equipment-card h3{font-size:23px!important}.model-tag{font-size:12px}.signal-dot{width:12px;height:12px}.card-status-row{font-size:14px}.card-status-row b{width:36px;height:36px;font-size:18px}.card-status-row small{font-size:11px}.machine-state .badge{font-size:13px!important}.machine-metrics small{font-size:13px!important}.machine-metrics strong{font-size:25px!important}.machine-metrics em{font-size:13px}.fuel-track{height:9px}
+ .directory-overview{font-size:14px}.directory-overview b{font-size:27px}.preset-row button{min-height:44px;font-size:13px!important}.toolbar label{font-size:13px!important}.toolbar input,.toolbar select{min-height:48px!important;font-size:15px!important}.comparison-plot,.trend-plot{height:300px!important}
+}
+
+/* Tablet vertical tipo iPad Air (820 x 1180): dos equipos visibles por fila. */
+@media(min-width:600px) and (max-width:900px){
+ #content{padding:20px!important}
+ .equipment-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:15px!important}
+ .equipment-card .machine-image{height:132px!important}
+ .equipment-card{min-width:0!important}
+}
+
+/* Ficha rápida legible tanto en vertical como en horizontal. */
+@media(min-width:600px) and (max-width:1366px){
+ .quick-dialog{width:min(760px,calc(100% - 32px))!important;max-width:760px!important;max-height:94dvh!important;overflow:auto!important}
+ .quick-head{padding:21px 24px!important}.quick-head small{font-size:12px!important}.quick-head h2{font-size:30px!important}.quick-head [data-close]{min-width:48px;min-height:48px;font-size:18px!important}
+ .quick-body{padding:20px 24px!important;gap:24px!important}.quick-body>img{width:190px!important;height:130px!important}.quick-body [data-quick-status]{font-size:15px!important}.quick-body [data-quick-status] p{font-size:15px!important;line-height:1.45}.quick-body [data-quick-status] small{font-size:13px!important}
+ .quick-metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important;padding:0 24px 20px!important}.quick-metrics>div{padding:16px!important}.quick-metrics small{font-size:13px!important}.quick-metrics strong{font-size:28px!important;margin:7px 0!important}.quick-metrics em{font-size:14px!important}.quick-metrics .badge{font-size:11px!important;padding:5px 8px!important}
+ .quick-dialog>.quick-alert-action{margin-inline:24px!important;width:calc(100% - 48px)!important;min-height:48px;font-size:14px!important;color:#fff!important;background:#c83e35!important;border-color:#a82d27!important}.quick-alert-action .ui-icon{width:23px!important;height:23px!important}
+ .quick-dialog>.quick-actions{padding:4px 24px 24px!important;grid-template-columns:1.5fr 1fr 1fr!important}.quick-dialog>.quick-actions a{min-height:48px!important;font-size:13px!important}
+}
+
+@media(max-width:520px){.equipment-card .machine-image{height:145px!important}.machine-metrics strong{font-size:22px!important}.directory-overview>span{flex:1 1 42%}}
+@media(prefers-reduced-motion:reduce){.alarm-count.current{animation:none!important}}
+
+/* Escala general de la aplicación para tablets de 8 a 13 pulgadas. */
+@media(min-width:600px) and (max-width:1366px){
+ html{font-size:16px}body{line-height:1.45}
+ #content{font-size:15px}.page-heading{margin-bottom:18px!important}.page-heading h1{font-size:30px!important}.page-heading p{font-size:14px!important;line-height:1.5}
+ .button,button,input,select{font-size:14px!important}.button{min-height:44px;padding:10px 15px!important}.badge{font-size:11px!important;padding:5px 8px!important}
+ .topbar{min-height:60px!important}.topbar .icon-button,.topbar .button{min-width:44px;min-height:44px}.topbar .ui-icon{width:24px;height:24px}
+ .sidebar nav a{font-size:14px!important;min-height:50px}.sidebar nav .icon{width:40px!important;height:40px!important}.sidebar nav .ui-icon{width:27px!important;height:27px!important}
+ .panel{border-radius:15px!important}.panel-head{padding:18px 20px!important}.panel-head h2{font-size:20px!important;line-height:1.3}.panel-head p{font-size:13px!important;line-height:1.5}
+ .graphic-kpi{min-height:135px!important;padding:18px!important}.graphic-kpi>div>small{font-size:13px!important}.graphic-kpi strong{font-size:31px!important}.graphic-kpi em{font-size:13px!important}.mini-ring{width:76px;height:76px}.alarm-fraction{width:82px}.alarm-fraction>b{font-size:23px}
+ .attention-tabs button,.state-visual-legend button,.home-group-grid button{font-size:13px!important}.attention-machine-head b,.notification-machine b{font-size:16px!important}.attention-machine-head img,.notification-machine img{width:68px!important}.attention-reason,.notification-machine small{font-size:12px!important}
+ .trend-controls{font-size:14px}.trend-controls select{min-height:45px!important}.trend-plot,.comparison-plot{height:330px!important}.chart-caption,.comparison-stats{font-size:12px!important;line-height:1.55}.range-switch button{min-width:43px;min-height:38px;font-size:12px!important}
+ .table-scroll table{font-size:14px!important}.table-scroll th{font-size:11px!important;padding:13px 11px!important}.table-scroll td{padding:13px 11px!important}.table-scroll td small{font-size:11px!important;margin-top:4px}
+ .incident{padding:20px!important}.incident h2{font-size:20px!important}.incident h3{font-size:16px!important}.incident p,.incident-reason{font-size:13px!important}.incident-heading{font-size:11px!important}.incident .button{font-size:13px!important}.incident-visual{width:62px;height:62px}.incident-visual svg{width:32px;height:32px}
+ .summary-tile{padding:17px!important}.summary-tile strong{font-size:29px!important}.summary-tile span{font-size:13px!important}
+ .map-live-overview{font-size:14px!important}.map-live-overview b{font-size:27px!important}.map-tracking-card{font-size:14px!important}.map-tracking-card strong{font-size:20px!important}
+ .studio-form{display:block!important;font-size:14px!important}.studio-columns legend{font-size:18px!important}.selection-list label{font-size:14px!important;min-height:50px}.selection-list small,.range-note,.report-download-note small{font-size:12px!important}.period-card,.report-download-note{padding:15px!important}.report-status{font-size:14px!important}
+ .install-panel{max-width:1000px}.install-hero h2{font-size:31px!important}.install-hero p{font-size:15px!important}.install-actions p,.install-benefits p,.install-help li{font-size:14px!important;line-height:1.55}.install-benefits article b,.install-help h3{font-size:17px}
+ .data-notes summary{font-size:14px!important;min-height:48px}.data-notes p,.notice{font-size:13px!important;line-height:1.6}
+ .notification-dialog{font-size:14px}.notification-overview-summary b{font-size:25px!important}.notification-alert-heading b{font-size:17px!important}.notification-guidance p{font-size:13px!important}
+}
+
+/* Vertical: conserva densidad de tablet sin convertirla en una vista de teléfono. */
+@media(min-width:600px) and (max-width:900px){
+ .page-heading p{display:block!important;margin-top:6px!important}
+ .graphic-kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:13px!important}
+ .command-map-row,.command-data-row,.bottom-charts,.report-chart-grid{grid-template-columns:1fr!important}
+ .attention-machine-grid,.notification-machine-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .incident-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+ .alert-summary{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important}.summary-tile{display:grid!important;justify-items:center;text-align:center}.summary-tile .ui-icon{display:block!important;width:27px;height:27px}
+ .map-only-panel .map-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-height:220px!important}.map-only-panel .map-item{padding:12px 10px!important}.map-only-panel .map-item strong{font-size:13px!important}.map-only-panel .map-state-chip{font-size:11px!important;padding:4px 7px}
+ .history-command.wide{grid-template-columns:repeat(2,minmax(0,1fr))!important}.history-command.wide>*{min-width:0}.history-presets{grid-column:1/-1}.signal-picker.wide{grid-template-columns:repeat(2,minmax(0,1fr))!important}.signal-picker.wide label{font-size:13px!important;min-height:48px!important}.signal-picker.wide label small{font-size:11px!important}
+ .studio-columns{gap:13px!important}.mobile-section-toggle{font-size:15px!important;min-height:54px!important}.report-actions .button{min-height:50px}
+ .install-hero{grid-template-columns:auto 1fr!important;justify-items:start!important;text-align:left!important}.install-app-icon{width:105px!important;height:105px!important}.install-benefits{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+ .asset-hero{padding:23px!important}.asset-identity h2{font-size:30px!important}.hero-hours strong{font-size:29px!important}.dial-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.secondary-dials .dial-card:last-child{grid-column:auto!important}.gauge-ring{width:165px!important;height:165px!important}.gauge-ring strong{font-size:29px!important}.dial-card>small:first-child{font-size:14px!important}
+}
+
+/* Horizontal: usa el ancho extra sin volver a textos de escritorio pequeños. */
+@media(min-width:901px) and (max-width:1366px){
+ .graphic-kpis{grid-template-columns:repeat(4,minmax(0,1fr))!important}.bottom-charts,.report-chart-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.incident-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .map-only-panel .map-item strong{font-size:14px!important}.map-only-panel .map-state-chip{font-size:11px!important}
+ .dial-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}.secondary-dials{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .studio-columns{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important}.studio-columns .report-period{grid-column:1/-1!important}.selection-list{min-height:0!important;max-height:320px!important}
+ .nav-collapsed .sidebar{width:78px!important;padding-inline:9px!important}.nav-collapsed .shell{margin-left:78px!important}.nav-collapsed .sidebar nav a{font-size:0!important;justify-content:center!important;padding-inline:3px!important}.nav-collapsed .sidebar nav .icon{width:42px!important;height:42px!important}.nav-collapsed .sidebar .workspace,.nav-collapsed .sidebar .sidebar-bottom{display:none!important}.nav-collapsed .sidebar .brand img{width:62px!important}
+}
+
+.map-layout:fullscreen{width:100vw!important;height:100vh!important;min-height:100vh!important;background:var(--bg)!important;display:grid!important;grid-template-columns:220px minmax(0,1fr)!important}.map-layout.list-hidden:fullscreen{grid-template-columns:minmax(0,1fr)!important}.map-layout:fullscreen .map-list{height:100vh!important;max-height:100vh!important}.map-layout:fullscreen .map-canvas{height:100vh!important;min-height:100vh!important}
+.map-layout.map-expanded{position:fixed!important;inset:0!important;z-index:2200!important;width:100vw!important;height:100dvh!important;min-height:100dvh!important;background:var(--bg)!important;display:grid!important;grid-template-columns:220px minmax(0,1fr)!important}.map-layout.map-expanded.list-hidden{grid-template-columns:minmax(0,1fr)!important}.map-layout.map-expanded .map-list,.map-layout.map-expanded .map-canvas{height:100dvh!important;max-height:100dvh!important;min-height:100dvh!important}
+@media(max-width:900px){.map-layout:fullscreen,.map-layout.map-expanded{grid-template-columns:1fr!important}.map-layout:fullscreen .map-list,.map-layout.map-expanded .map-list{display:none!important}}
+html[data-theme=dark] :is(.map-layout:fullscreen,.map-layout.map-expanded,.map-layout:fullscreen .map-canvas,.map-layout.map-expanded .map-canvas){background:#454649!important}
+
+/* Mapa de Inicio a pantalla completa: solo mapa y control para salir. */
+.home-map-panel:fullscreen{position:relative!important;width:100vw!important;height:100dvh!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:#454649!important}
+.home-map-panel:fullscreen>.panel-head{position:absolute!important;inset:0!important;z-index:1000!important;height:0!important;min-height:0!important;padding:0!important;border:0!important;background:transparent!important;overflow:visible!important}
+.home-map-panel:fullscreen>.panel-head>div:first-child,.home-map-panel:fullscreen #home-zone,.home-map-panel:fullscreen #home-all,.home-map-panel:fullscreen .command-map-caption{display:none!important}
+.home-map-panel:fullscreen .home-map-buttons{display:block!important;width:0!important;height:0!important}
+.home-map-panel:fullscreen #home-map-full{display:grid!important;place-items:center!important;position:fixed!important;top:max(12px,env(safe-area-inset-top))!important;right:max(12px,env(safe-area-inset-right))!important;z-index:1100!important;width:48px!important;height:48px!important;min-width:48px!important;padding:0!important;background:#273039!important;color:#fff!important;border-color:#52606b!important;box-shadow:0 5px 18px #0005!important}
+.home-map-panel:fullscreen #command-map{width:100vw!important;height:100dvh!important;min-height:100dvh!important;border:0!important}
+
+/* Encabezado compacto del mapa en tablet vertical. */
+@media(min-width:600px) and (max-width:900px){
+ .home-map-panel:not(:fullscreen)>.panel-head{display:flex!important;align-items:center!important;justify-content:space-between!important;flex-wrap:nowrap!important;gap:10px!important;padding:12px 14px!important}
+ .home-map-panel:not(:fullscreen)>.panel-head>div:first-child{flex:0 0 auto!important}
+ .home-map-panel:not(:fullscreen) .home-map-buttons{display:grid!important;grid-template-columns:auto auto 44px!important;width:auto!important;margin-left:auto!important;gap:6px!important;align-items:center!important}
+ .home-map-panel:not(:fullscreen) .home-map-buttons button{width:auto!important;min-width:0!important;min-height:40px!important;padding:7px 10px!important;font-size:11px!important;white-space:nowrap!important}
+ .home-map-panel:not(:fullscreen) #home-map-full{width:44px!important;height:40px!important;padding:0!important}
+}
+
+/* Centrado real de iconos al contraer el menú en cualquier laptop. */
+@media(min-width:901px){
+ .nav-collapsed .sidebar{width:78px!important;padding-inline:9px!important}
+ .nav-collapsed .shell{margin-left:78px!important}
+ .nav-collapsed .sidebar nav a{width:100%!important;justify-content:center!important;gap:0!important;margin:0!important;padding:4px 0!important;font-size:0!important}
+ .nav-collapsed .sidebar nav .icon{display:grid!important;place-items:center!important;width:42px!important;height:42px!important;flex:0 0 42px!important;margin:0!important;padding:0!important}
+ .nav-collapsed .sidebar nav .ui-icon{display:block!important;margin:auto!important}
+}
+
+/* Ajustes finales para la navegación y la ficha rápida en tablet. */
+@media(min-width:600px) and (max-width:900px){
+ .sidebar{width:min(72vw,268px)!important;padding:20px 14px!important}
+ .sidebar .brand{margin-inline:7px!important}.sidebar .brand img{width:168px!important}
+ .sidebar nav{width:100%!important}.sidebar nav a{width:100%!important;padding:6px 8px!important;gap:10px!important}
+ .sidebar nav .icon{width:38px!important;height:38px!important}.sidebar-bottom{padding-inline:4px!important}
+ .quick-dialog{width:min(720px,calc(100% - 36px))!important;max-height:88dvh!important}
+}
+
+@media(min-width:901px) and (max-width:1366px){
+ .nav-collapsed .sidebar nav a{gap:0!important;margin:0!important;padding:4px 0!important;width:100%!important}
+ .nav-collapsed .sidebar nav .icon{display:grid!important;place-items:center!important;margin:0!important;padding:0!important;flex:0 0 42px!important}
+ .nav-collapsed .sidebar nav .ui-icon{display:block!important;margin:auto!important}
+ .quick-dialog{width:min(720px,calc(100% - 48px))!important;max-height:calc(100dvh - 40px)!important}
+ .quick-head{padding:15px 20px!important}.quick-head h2{font-size:25px!important}.quick-head [data-close]{min-width:42px!important;min-height:42px!important}
+ .quick-body{padding:14px 20px!important;gap:18px!important}.quick-body>img{width:150px!important;height:96px!important}
+ .quick-metrics{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important;padding:0 20px 14px!important}
+ .quick-metrics>div{padding:12px!important}.quick-metrics small{font-size:11px!important}.quick-metrics strong{font-size:23px!important;margin:4px 0!important}.quick-metrics em{font-size:12px!important}
+ .quick-dialog>.quick-alert-action{margin:0 20px 8px!important;width:calc(100% - 40px)!important;min-height:42px!important}
+ .quick-dialog>.quick-actions{padding:2px 20px 16px!important}.quick-dialog>.quick-actions a{min-height:42px!important}
+}

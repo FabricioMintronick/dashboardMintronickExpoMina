@@ -1,6 +1,6 @@
 export async function getJSON(path, options = {}) {
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 18000);
+  const timer = setTimeout(() => controller.abort(), path.startsWith('/api/telemetry/history?') ? 60000 : 18000);
   try {
     const res = await fetch(path, { ...options, signal: controller.signal });
     if (!res.ok) {

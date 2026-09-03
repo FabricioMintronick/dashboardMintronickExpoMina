@@ -676,7 +676,7 @@ function allGwIcon(connected) {
     html: `
       <div style="position:relative; width:46px; height:31px;">
         <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:34px; height:34px; border-radius:50%; background:${ringColor}; opacity:0.25;"></div>
-        <img src="/tractor-d8.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain;" />
+        <img src="/tractor-d8-transparent.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain;" />
         <div style="position:absolute; bottom:-1px; right:1px; width:11px; height:11px; border-radius:50%; background:${ringColor}; border:2px solid #ffffff; box-shadow:0 0 4px rgba(0,0,0,.4);"></div>
       </div>`,
     iconSize: [46, 31],

@@ -27,9 +27,8 @@ La entrega se verificó en el puerto 4002. `.env` se excluye de Git. La credenci
 - Directorio con búsqueda/filtros y ficha con doce señales normalizadas.
 - Mapa con agrupación visual y posición original; búsqueda, filtro, lista y acceso al equipo.
 - Lectura de las últimas alarmas emitidas por el origen, conservando las antiguas.
-- Historial de una señal por consulta, hasta 31 días, límites explícitos y mínimos/máximos al agregar.
+- Historial y reportes con rangos de hasta 183 días; los periodos largos se agregan preservando mínimos y máximos.
 - CSV de situación con fechas y calidad por señal. No es reporte de producción ni de turno.
-- Mantenimiento: inventario de horómetros y requisitos pendientes, **no ejecuta planes ni órdenes**.
 - Vista técnica anterior conservada en `/tecnico.html`. No equivale a una vista validada para cliente.
 
 Inicio, ficha y alarmas consultan cada 15 segundos mientras la pestaña está visible. Las demás vistas se actualizan manualmente para conservar filtros, mapa y periodos de investigación. El estado indica la fecha de consulta. Un fallo de consulta muestra error, no datos simulados.
@@ -46,11 +45,12 @@ Inicio, ficha y alarmas consultan cada 15 segundos mientras la pestaña está vi
 - Alertas: tarjetas filtrables, avisos visuales y sonido optativo activado por gesto del usuario. Detecta nuevas banderas recientes observadas mientras el navegador está abierto/visible. No sustituye un servicio persistente de notificaciones. “Revisada” solo dura en la sesión; no resuelve ni reconoce incidentes en un servidor.
 - Historial: una a cuatro señales, mismo rango con ejes separados. Área para nivel de combustible, escalones para horómetro y líneas para señales continuas; no se usan gráficos circulares para temperaturas.
 - Reportes: filtros por modelo/comunicación, distribución y barras, CSV del subconjunto e impresión/PDF mediante el navegador. La media de nivel usa únicamente lecturas recientes e indica su denominador. No equivale a consumo.
-- Mantenimiento: motivos derivados de alarmas y ausencia de planes. Nunca afirma que un equipo esté en taller, tenga una orden abierta o un servicio vencido sin esos registros.
 
-Nuevos módulos: `ui.js`, `map-explorer.js`, `alerts.js`, `compare-history.js`, `report-explorer.js`, `maintenance.js`, `interactions.css`. Las consultas de avisos no reinician los filtros ni formularios de las vistas de investigación.
+Nuevos módulos: `ui.js`, `map-explorer.js`, `alerts.js`, `compare-history.js`, `report-explorer.js`, `interactions.css`. Las consultas de avisos no reinician los filtros ni formularios de las vistas de investigación.
 
 ### Actualización visual de marca
+
+Refinamiento: iconos duotono integrados en el menú; Inicio usa mosaico de flota, anillos de comunicación/GPS y proporción de equipos con alarmas. La distribución de estados prioriza “equipos con estado conocido ahora” y filas explicadas, con enlaces a cada grupo. Duty sigue sin interpretarse como productividad. Campana, bloque de alarmas y aviso emergente abren un diálogo de notificaciones con su última evidencia; cada aviso permite abrir la ficha rápida. La ficha completa reduce cabecera y deja contadores secundarios desplegables, sin ocultar la calidad del dato de los medidores visibles.
 
 La vista principal usa el logo suministrado, negro, amarillo `#fecc16` y turquesa `#1a9a9b`. `public/app/visual.js` y `visual.css` contienen tarjetas de maquinaria, distribución circular de estados, barras de combustible y medidores individuales. Se reutiliza el icono de tractor existente; no es una foto específica de cada activo.
 
@@ -83,6 +83,7 @@ El snapshot reutiliza el índice existente `{gateway:1,name:1,date:-1}`. Las lec
 - La vigencia predeterminada de 120 s es una referencia técnica provisional, no un límite OEM. Debe configurarse por señal después del levantamiento de frecuencias reales.
 - Un cero válido se conserva. Una desconexión no pone en cero el horómetro ni resuelve alarmas.
 - El GPS tiene una fecha propia; recibir STATE no actualiza su vigencia.
+- Privacidad GPS: `GPS_PRIVACY_ENABLED=true` aplica en el servidor `lat'=lat+GPS_LAT_OFFSET` y `lon'=lon+GPS_LON_OFFSET` tanto a marcadores como a recorridos. Usa `false` para restaurar las coordenadas originales. La vista independiente del mapa está disponible en `/mapa`.
 - Duty conserva el nombre original: no se afirma producción hasta validar su definición.
 - Sin un documento completo de alarmas reciente, la condición es desconocida. No hay diagnóstico de salud del activo.
 - Se exige confirmar unidades y sentinelas del protocolo antes del uso comercial; el normalizador actual no sustituye esa auditoría.
@@ -111,3 +112,75 @@ node scripts/smoke.cjs
 Casos para revisar con el usuario: buscar un D8, abrir ficha, contrastar fecha GPS frente a comunicación, consultar una señal histórica, descargar CSV, confirmar que una alarma vieja se sigue mostrando y un horómetro no se vuelve cero al desconectar.
 
 Siguiente entrega: catálogo editable con identidad del activo independiente del gateway; contratos por señal; autenticación y permisos; reglas versionadas de eventos y flujo de atención; planes preventivos con órdenes persistentes; reportes por turno. Ninguno de esos procesos se presenta como implementado en esta versión.
+
+
+### Actualización gráfica y reportes históricos (31 agosto)
+- Inicio: dona interactiva por estado y barras por tipo de alarma. Los gráficos representan últimas lecturas, no frecuencia histórica de incidentes.
+- La sincronización de flota ahora consulta cada 5 s sin remontar la vista activa; Chart.js conserva la instancia de tendencia. No es transmisión push ni tiempo real garantizado. Las consultas históricas y reportes son a demanda; estadísticas del equipo se consultan como máximo cada 30 s.
+- Ficha: histogramas reales de RPM y refrigerante en la hora anterior a la última lectura RPM, con extremos y promedio por muestra. No son horas de utilización.
+- Alertas: dona de vigencia y barras por tipo, además de evidencia consultable.
+- GPS: conserva encuadre al sincronizar; resumen de posiciones recientes, antiguas y ausentes, escala métrica. Continúa siendo cartografía 2D OpenStreetMap.
+- Reportes: selección de equipo, señal y fechas (183 días máximo), vista estadística y CSV histórico con fecha, unidad, promedio, extremos y cantidad de muestras por intervalo cuando corresponda. Si un periodo corto supera 5000 lecturas, la API resume automáticamente todo el rango por intervalos y conserva promedio, mínimo, máximo y cantidad; no descarta el final de la consulta ni transforma el histórico agregado en datos crudos.
+
+### Aplicación Android
+
+La vista **Aplicación** descarga `public/downloads/mintronick-operaciones.apk`. El APK abre exclusivamente `https://dashboard-demo.mintronick.com`, requiere Android 7 o posterior e Internet, y utiliza el mismo login del servidor. La interfaz se actualiza desde el servidor sin generar otro APK. El APK incluido está firmado para instalación interna y pruebas; para distribución pública debe firmarse con una clave definitiva que se conserve fuera del repositorio.
+
+
+### Experiencia de presentación y exportación múltiple
+- Inicio usa command-center.js: mapa de contexto, revisión priorizada (alarmas recientes, después desconexión), matriz de vigencia por señal y tendencia. No calcula productividad ni inventa umbrales.
+- El directorio deja de repetir las gráficas de Inicio: resumen, filtros por modelo, comunicación y nombre, tarjetas con señales adicionales.
+- Historial comparte catálogo signals.js con Reportes: 12 variables, seis iniciales, selección completa, periodos rápidos y ampliación de gráficos. Solicitudes limitadas a tres en paralelo.
+- Reportes usa report-studio.js: equipos y variables múltiples, fechas hasta 183 días, CSV largo y resumen. La resolución agregada es 1 minuto hasta 24 horas, 5 minutos hasta 7 días, 30 minutos hasta 31 días, 2 horas hasta 93 días y 6 horas hasta 183 días. Medias ponderadas por número de muestras válidas; no medias ponderadas por tiempo. Exportación bloqueada ante errores o truncamiento.
+- Mapa: selección persistente, seguir posición reciente, ficha contextual, recorrido bajo demanda, pantalla completa y agrupaciones legibles. Sigue siendo OSM 2D; no se agregó un proveedor satelital ni se simula 3D.
+- Modo feria amplía el espacio y oculta la barra lateral; se sale desde el mismo botón. No agrega datos de demostración. Requiere conexión con MongoDB y acceso a CDN/mapas.
+
+Las agregaciones usan el índice existente gateway/name/date y hasta 45 s de ejecución; el cliente permite 60 s para historial. Un reporte amplio puede tardar: el progreso cuenta combinaciones completadas. Ante fallo de una combinación, no se habilita una exportación parcial como si fuera completa. La preparación para feria requiere validar conectividad y el comportamiento visual en la pantalla final; las pruebas automatizadas no sustituyen esa revisión.
+
+
+### Inicio: significado y motivos de cada bloque
+- Recepción: identifica por nombre quién envió al menos un dato dentro de la vigencia configurada. No prueba conexión permanente ni motor encendido.
+- Atención: solo observaciones reales; prioridad exclusiva alarma reciente, ausencia de datos recientes y alarma antigua. Sin equipos de relleno ni selección arbitraria de cuatro.
+- Mapa de Inicio: zona con mayor concentración aproximada dentro de 20 km; contador visible de equipos en el encuadre y botón para toda la flota. Grupos abren la identidad de los equipos sin desplazar coordenadas.
+- Estados: distribución de equipos con estado reciente, leyenda interactiva y denominador explícito. Duty conserva su interpretación pendiente; no se llama productividad.
+- Alarmas: barras apiladas por tipo separan evidencia reciente de antigua. El total cuenta banderas; un equipo puede tener varios tipos.
+- Matriz: últimas lecturas independientes por señal, con unidades y antigüedad. Clic abre significado, fecha y alarmas asociadas; sin umbrales de seguridad inventados.
+- Notificaciones: gráficos, selección por tipo y tarjetas agrupadas por equipo. Se actualizan mientras el diálogo permanece abierto; abrir evidencia no reconoce ni resuelve la alarma.
+
+
+### Inicio compacto y tarjetas visuales
+- Resumen en una franja con cuatro indicadores; recepción por equipo en una segunda fila desplegable.
+- Atención usa imagen del equipo, contador e iconos específicos por tipo de alarma. El motivo y la evidencia permanecen accesibles; no se inventan curvas ni gravedad.
+- Estado añade etiquetas de equipos por estado para que cada cantidad sea identificable. Las lecturas antiguas siguen separadas.
+- El mapa conserva OSM y coordenadas; modo oscuro mediante estilo de contraste del mosaico, con retorno a mapa claro. No es satélite.
+- Referencias funcionales consultadas: Cat VisionLink (https://www.cat.com/en_US/products/new/technology/visionlink/visionlink/132082.html), Komatsu Telematics (https://www.komatsu.com/en-us/services-and-support/equipment-monitoring-and-analysis/telematics). Se toma la jerarquía mapa/indicadores/acceso a equipos, sin copiar marcas ni atribuir capacidades no implementadas.
+
+### Comunicación, tema y GPS (31 agosto)
+El inicio usa un indicador «Datos recibidos» y deja el detalle por equipo plegado. Atención agrupa alarmas y ausencia de comunicación; no interpreta ausencia de datos como motor apagado. El estado separa transmisión y estado operativo y oculta categorías vacías. La distribución de alarmas queda desplegable.
+Tema claro/oscuro persistente mediante mintronick-theme. Las fichas rápidas se actualizan con la consulta de flota; sus accesos de alarma filtran el centro de avisos por equipo. Los avisos por equipo/código tienen un intervalo mínimo de 120 segundos, además de detección de cambios.
+El GPS consulta al seleccionar equipo. Permite terminar el periodo ahora o en la última posición histórica, reproducir muestras reales y activar actualización del recorrido cada 30 segundos sin mover la vista. La flota se consulta cada 5 segundos mientras la pestaña está visible; las señales conservan su propia fecha. No es recepción simultánea de sensores.
+Verificación: 17 pruebas automatizadas, revisión sintáctica y smoke de API local. Consultas de recorrido devolvieron 2871 posiciones recientes de D8T-2 y 2881 históricas de D8T-1. Sin inspección visual de navegador en esta iteración.
+
+### Ajustes de presentación y alcance (31 agosto)
+- `equipment.json` es la lista autorizada: la API ya no incorpora gateways desconocidos encontrados en MongoDB.
+- Estado de flota muestra Duty, Ralentí, Encendido, Apagado y Sin comunicación; las lecturas que no permiten inferir estado operativo se omiten de la distribución sin convertirlas en apagado.
+- Distribución de alarmas visible, tarjetas de equipo compactas con símbolos de estado y alarma, alarmas con iconografía, tema oscuro neutro y mapa con menos texto.
+- Historial con rangos rápidos y selector personalizado; reportes de hasta 183 días con agregación de 6 horas para seis meses. Para rangos superiores a 30 días se limitan a seis combinaciones equipo-variable por generación.
+- Breakpoints añadidos para móvil, tablet, escritorio y pantallas de 1900 px o más.
+- Recorrido validado en la API con 2868 muestras reales de D8T-2; el proceso local fue reiniciado para cargar la ruta.
+
+### Correcciones de instancia y navegación (31 agosto)
+La instancia antigua de 4001 fue reemplazada por el servidor actual. `/api/fleet` devuelve 17 entradas del catálogo, ninguna sin catalogar; la vista operativa oculta TEST y muestra 16. Historial acepta todas las 12 variables (antes el selector capturaba otros controles y bloqueaba el resultado). API verificada con 3113 puntos RPM y 2872 posiciones GPS para D8T-4. El mapa actualiza marcadores con cada consulta de flota de 5 s y destaca GPS reciente; no interpola posiciones no transmitidas.
+
+### Trazo, historial y CSV (31 agosto)
+- El mapa ofrece Último desplazamiento por defecto. Ordena muestras, elimina saltos GPS que regresan al punto anterior, reduce jitter inferior a 8 m y corta discontinuidades; 1/6/24 h siguen disponibles. En D8T-2 redujo 2864 muestras a 174 puntos para 24 h y 33 para el último movimiento, conservando muestras reales.
+- Historial corregido: Aplicar ahora es un submit identificable y el estado de carga se libera al terminar. Consulta real RPM validada con 787 puntos.
+- El CSV de datos cambió a formato ancho: una fila por equipo y fecha, encabezados descriptivos en español y bloques valor/mínimo/máximo/muestras por variable. El CSV resumen permanece separado.
+
+### Clasificación de estado operativo (1 septiembre)
+La comunicación general mantiene vigencia de 120 s y cada señal conserva su propia vigencia. La vista combina los documentos STATE, RPM, carga y velocidad sin alterar los valores originales: Operando requiere motor activo y movimiento, carga o Duty; Ralentí requiere motor activo con baja velocidad y sin evidencia de trabajo; Apagado exige un Off reciente; Sin conexión significa que no llega ninguna señal; Estado no confirmado cubre GPS u otros datos recientes sin evidencia vigente del motor. GPS y velocidad cero, por sí solos, no prueban ralentí.
+
+La interfaz se actualiza cada 5 s sin botones manuales. Los recorridos eliminan vibración estacionaria y separan saltos mayores a 2 min o incompatibles con una velocidad máxima de 25 km/h, evitando dibujar teletransportes como trayectos. Alertas permite descargar un CSV de avisos y abrir evidencia, historial o equipo desde cada tarjeta.
+
+### Prueba temporal desde un celular
+Con el PC y el celular en la misma red Wi-Fi, ejecuta `npm run dev:lan` y abre en el celular `http://IP-DE-TU-PC:4001` (por ejemplo, `http://192.168.100.10:4001`). Windows puede pedir permiso de firewall para redes privadas. Este modo expone la telemetría a otros dispositivos de esa red y no tiene autenticación; se debe usar solo para pruebas y detener con Ctrl+C. `npm run dev` conserva el acceso exclusivo desde el PC. No se necesita VPN para la misma red; para producción se requiere HTTPS, autenticación y un servidor o túnel administrado.

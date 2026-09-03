@@ -1,6 +1,7 @@
 import {escape as e,date,number,quality} from './format.js';
 import {csvCell} from './reports.js';
 import {donut} from './visual.js';
+import {mountHistoryReport} from './historical-report.js';
 export async function mount(page,{items,fleet,panel}){
   let filtered=items;
   page.innerHTML=`<div class="toolbar"><label>Modelo<select id="report-model"><option value="all">Todos los modelos</option>${[...new Set(items.map(i=>i.model))].map(m=>`<option>${e(m)}</option>`).join('')}</select></label><label>Comunicación<select id="report-quality"><option value="all">Todos</option><option value="fresh">Reciente</option><option value="stale">Sin datos recientes</option></select></label><button class="button" id="export-filtered">Descargar CSV filtrado</button><button class="button secondary" id="print-report">Imprimir / PDF</button></div><div id="report-results"></div><p class="chart-caption">Reporte de situación al ${e(date(fleet.generatedAt))}. No representa consumo, producción ni disponibilidad mecánica.</p>`;
@@ -11,4 +12,5 @@ export async function mount(page,{items,fleet,panel}){
   page.querySelector('#report-model').onchange=draw;page.querySelector('#report-quality').onchange=draw;
   page.querySelector('#print-report').onclick=()=>window.print();
   page.querySelector('#export-filtered').onclick=()=>{const rows=[['equipo','modelo','horometro_h','fecha_horometro','vigencia_horometro','nivel_pct','fecha_nivel','vigencia_nivel','ultima_comunicacion','vigencia_comunicacion','alarmas','fecha_consulta'],...filtered.map(i=>[i.name,i.model,i.metrics.hours.value,i.metrics.hours.at,i.metrics.hours.quality,i.metrics.fuel.value,i.metrics.fuel.at,i.metrics.fuel.quality,i.lastAt,i.communication,i.alarms.map(a=>a.code).join('|'),fleet.generatedAt])];const url=URL.createObjectURL(new Blob(['\ufeff'+rows.map(r=>r.map(csvCell).join(';')).join('\r\n')],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='MINTRONICK_reporte_filtrado.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};draw();
+  return mountHistoryReport(page,items);
 }

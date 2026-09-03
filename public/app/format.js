@@ -11,10 +11,17 @@ export function age(value) {
   return `Hace ${Math.floor(minutes / 1440)} días`;
 }
 export function badge(text, color = 'gray') { return `<span class="badge ${color}">${escape(text)}</span>`; }
-export function quality(value) { return badge(({fresh:'● Reciente',stale:'◷ Atrasado',missing:'— Sin dato',invalid:'! Fecha inválida'})[value] || 'Sin dato', value === 'fresh' ? 'teal' : value === 'invalid' ? 'amber' : 'gray'); }
+export function quality(value) {
+  if(value==='fresh')return '';
+  return badge(({stale:'Sin actualización',missing:'Sin lectura registrada',invalid:'Fecha inválida'})[value] || 'Sin lectura registrada',value==='invalid'?'amber':'gray');
+}
 export function state(item) {
-  const label = ({off:'Apagado',idle:'Ralentí',keyon:'Contacto',duty:'Duty · Por validar'})[String(item.state.value).toLowerCase()] || item.state.value || 'Sin estado';
-  return badge(`${item.state.quality !== 'fresh' && item.state.value ? 'Último: ' : ''}${label}`, item.state.quality === 'fresh' ? 'blue' : 'gray');
+  if (item.communication !== 'fresh') return badge('Sin conexión','gray');
+  const rpm=item.metrics?.rpm,speed=item.metrics?.speed,load=item.metrics?.load,raw=String(item.state?.value||'').toLowerCase();
+  const engine=rpm?.quality==='fresh'&&Number(rpm.value)>300,moving=speed?.quality==='fresh'&&Number(speed.value)>1,working=load?.quality==='fresh'&&Number(load.value)>20;
+  if(engine&&(moving||working||item.state?.quality==='fresh'&&raw==='duty'))return badge('Operando','teal');
+  if(engine||item.state?.quality==='fresh'&&raw==='idle')return badge('Ralentí','amber');
+  return badge('Detenido','blue');
 }
 export function condition(item) {
   return badge(({reported:'! Alarma reportada','last-alert':'! Última alarma · Atrasada','no-reported-alerts':'Sin alarmas reportadas',unknown:'Sin evaluación vigente'})[item.condition], item.condition === 'reported' ? 'red' : item.condition === 'last-alert' ? 'amber' : 'gray');
