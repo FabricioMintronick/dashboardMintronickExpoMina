@@ -21,3 +21,11 @@ test('period performance rejects reset counters and summarized boundaries',async
   assert.equal(counterDelta({points:[{v:10},{v:2}]}).value,null);
   assert.equal(counterDelta({bucketMs:60000,points:[{v:10},{v:12}]}).value,null);
 });
+
+test('period performance ignores an alternating secondary counter scale',async()=>{
+  const {counterDelta}=await import('../public/app/period-performance.js');
+  const result=counterDelta({bucketMs:0,points:[{t:'a',v:649.9},{t:'b',v:10.47},{t:'c',v:649.9},{t:'d',v:650.3}]});
+  assert.ok(Math.abs(result.value-.4)<1e-9);
+  const realReset=counterDelta({bucketMs:0,points:[{v:650},{v:2},{v:2.5},{v:3}]});
+  assert.equal(realReset.value,null);
+});
