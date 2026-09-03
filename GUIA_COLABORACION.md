@@ -28,8 +28,8 @@ Solicita acceso al repositorio de GitHub antes de continuar. En PowerShell:
 cd "$HOME\Desktop"
 git clone https://github.com/FabricioMintronick/dashboardMintronickExpoMina.git mintronick-dashboard-colaboracion
 cd mintronick-dashboard-colaboracion
-git switch codex/colaboradora-desarrollo
-git pull --ff-only origin codex/colaboradora-desarrollo
+git switch ingenieria-desarrollo
+git pull --ff-only origin ingenieria-desarrollo
 ```
 
 Confirma que estás en la rama correcta:
@@ -38,7 +38,7 @@ Confirma que estás en la rama correcta:
 git branch --show-current
 ```
 
-Debe responder `codex/colaboradora-desarrollo`.
+Debe responder `ingenieria-desarrollo`.
 
 ## 3. Instalar las dependencias
 
@@ -146,8 +146,8 @@ La APK incluida abre el servidor publicado. Para probar cambios locales en la ta
 Antes de comenzar:
 
 ```powershell
-git switch codex/colaboradora-desarrollo
-git pull --ff-only origin codex/colaboradora-desarrollo
+git switch ingenieria-desarrollo
+git pull --ff-only origin ingenieria-desarrollo
 ```
 
 Después de modificar y validar:
@@ -156,7 +156,7 @@ Después de modificar y validar:
 git status
 git add ruta\del\archivo-modificado
 git commit -m "tipo: descripción breve del cambio"
-git push origin codex/colaboradora-desarrollo
+git push origin ingenieria-desarrollo
 ```
 
 Ejemplos de tipos: `feat`, `fix`, `docs`, `refactor` y `test`. Se deben agregar solamente los archivos relacionados con el cambio; nunca `.env`, contraseñas, archivos `.keystore`, logs, paquetes `.tgz` ni bases de datos.
@@ -165,7 +165,7 @@ Ejemplos de tipos: `feat`, `fix`, `docs`, `refactor` y `test`. Se deben agregar 
 
 La colaboradora debe abrir un Pull Request en GitHub:
 
-- Rama de origen: `codex/colaboradora-desarrollo`
+- Rama de origen: `ingenieria-desarrollo`
 - Rama de destino: la rama que indique el responsable
 - Incluir qué problema resuelve, qué cambió y cómo se validó
 - Adjuntar capturas para cambios visuales en laptop, tablet horizontal y tablet vertical
@@ -195,3 +195,4 @@ No se debe fusionar directamente ni desplegar en el servidor sin revisión. Si a
 **La tablet no abre la página:** confirma la misma red Wi-Fi, `ALLOW_LAN=true`, la IPv4 correcta y el permiso de Firewall para red privada.
 
 **Cambios visuales no aparecen:** recarga sin caché con `Ctrl+F5` en Windows. En tablet, cierra y vuelve a abrir la pestaña; si se prueba una versión publicada, primero debe desplegarse esa versión.
+
