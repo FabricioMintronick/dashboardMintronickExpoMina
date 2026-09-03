@@ -1,6 +1,9 @@
 /* V2 component layer. New responsive behavior lives here while legacy styles are retired incrementally. */
 :root{--control-min:44px;--text-secondary:12px;--space-page:clamp(14px,2.2vw,32px)}
 
+/* Separation between the brand and the first navigation action. */
+.sidebar>.brand{margin-bottom:32px}.nav-collapsed .sidebar>.brand{margin-bottom:0}
+
 /* Navigation utilities */
 .sidebar-tools{margin:0 0 8px;border:0}.sidebar-tools>summary{display:flex;align-items:center;gap:12px;min-height:42px;padding:8px 12px;border-radius:10px;cursor:pointer;list-style:none;color:#829994;font-size:12px}.sidebar-tools>summary::-webkit-details-marker{display:none}.sidebar-tools>summary:hover,.sidebar-tools[open]>summary{background:#ffffff0a;color:#c7d9d5}.sidebar-more{width:23px;text-align:center;font-weight:900;letter-spacing:2px}.sidebar-tool-list{display:grid;gap:3px;padding:3px 0}.sidebar-tool,.sidebar-tools #theme-toggle{display:flex;width:100%;min-height:40px;align-items:center;justify-content:flex-start;gap:12px;padding:7px 12px;border:0;border-radius:10px;background:transparent;color:#9eb7b2;font-size:11px}.sidebar-tool:hover,.sidebar-tools #theme-toggle:hover{background:#ffffff0e;color:#fff}.sidebar-tools .ui-icon{width:21px;height:21px}.sidebar-tools .theme-symbol{width:21px;text-align:center;font-size:16px}.sidebar-tools #theme-toggle{border-color:transparent}.sidebar-tools #theme-toggle .theme-label{display:inline}.nav-collapsed .sidebar-tools>summary{justify-content:center;padding-inline:0}.nav-collapsed .sidebar-tools>summary span:last-child,.nav-collapsed .sidebar-tools .sidebar-tool span,.nav-collapsed .sidebar-tools .theme-label{display:none}.nav-collapsed .sidebar-tools button{justify-content:center;padding-inline:0}
 
