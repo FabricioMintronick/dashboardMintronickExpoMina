@@ -71,6 +71,8 @@ body:not(.standalone-map) .map-only-panel .leaflet-tile,body:not(.standalone-map
 html:has(body.standalone-map),body.standalone-map,body.standalone-map main,body.standalone-map #page,body.standalone-map .map-only-panel,body.standalone-map .map-layout{width:100%;height:100dvh!important;min-height:100dvh!important;margin:0!important;padding:0!important;overflow:hidden}
 body.standalone-map .map-canvas{height:100dvh!important;min-height:100dvh!important}
 body.standalone-map .map-list{height:100dvh!important;max-height:100dvh!important}
+.x1200-return-control{min-width:220px!important;min-height:54px!important;padding:0 24px!important;border:2px solid #fecc16!important;border-radius:999px!important;background:#123f3b!important;color:#fff!important;font-size:16px!important;font-weight:800!important;letter-spacing:.02em!important;box-shadow:0 8px 24px #0008!important}
+.x1200-return-control:hover,.x1200-return-control:focus{background:#0f6b6e!important;border-color:#fecc16!important;color:#fff!important}
 
 /* Historial: selector compacto y coherente con cada tema. */
 .signal-picker.wide{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important;margin:12px 0 18px!important}.signal-picker.wide label{min-height:42px!important;padding:8px 11px!important;border-radius:8px!important;line-height:1.2}.signal-picker.wide label small{margin-left:auto;opacity:.72}.signal-picker.wide label:hover{border-color:#69aaa3;background:#edf7f3}
