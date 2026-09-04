@@ -1,5 +1,7 @@
 # MINTRONICK · Operaciones
 
+Para preparar una computadora nueva y trabajar mediante la rama de colaboración, consulta [GUIA_COLABORACION.md](GUIA_COLABORACION.md).
+
 Primera entrega de la evolución del dashboard. Aplicación local conectada a MongoDB; sin datos simulados y sin escrituras a la base operativa.
 
 ## Ejecutar
