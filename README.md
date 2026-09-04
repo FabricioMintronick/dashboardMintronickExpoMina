@@ -128,7 +128,7 @@ Siguiente entrega: catálogo editable con identidad del activo independiente del
 
 La vista **Aplicación** descarga `public/downloads/mintronick-operaciones.apk`. El APK abre exclusivamente `https://dashboard-demo.mintronick.com`, requiere Android 7 o posterior e Internet, y utiliza el mismo login del servidor. La interfaz se actualiza desde el servidor sin generar otro APK. El APK incluido está firmado para instalación interna y pruebas; para distribución pública debe firmarse con una clave definitiva que se conserve fuera del repositorio.
 
-La misma vista ofrece **MinTronick Sync** desde `public/downloads/mintronick-sync.apk`. El QR local apunta a `https://dashboard-demo.mintronick.com/downloads/mintronick-sync.apk`. Versión publicada: `1.0.0-eval`; SHA-256: `34EAB16B1D1C26E56461A7E1B4A2635780B64D2754A29F1A2AE0D0912B07E9C7`.
+La misma vista ofrece **MinTronick Sync** desde `public/downloads/mintronick-sync.apk`, junto a la descarga de MinTronick Operaciones. Versión publicada: `1.0.0-eval`; SHA-256: `34EAB16B1D1C26E56461A7E1B4A2635780B64D2754A29F1A2AE0D0912B07E9C7`.
 
 
 ### Experiencia de presentación y exportación múltiple

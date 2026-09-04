@@ -35,7 +35,7 @@ const routes = {
   alerts: ['△','Alertas','Alarmas reportadas',''],
   history: ['◷','Historial','Explorar el historial'],
   reports: ['▤','Reportes','Centro de reportes'],
-  install: ['⇩','Aplicación','MinTronick Sync','Descarga la aplicación de recolección y sincronización para Android.']
+  install: ['⇩','Aplicación','Aplicaciones Android','Descarga MinTronick Operaciones o MinTronick Sync.']
   /*maintenance: ['⚒','Mantenimiento','Planificación de mantenimiento','Horómetros disponibles y requisitos para activar planes preventivos.']*/
 };
 const iconMarkup = icon;

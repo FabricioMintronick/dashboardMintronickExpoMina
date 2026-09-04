@@ -8,5 +8,4 @@ for(const file of files){const frontend=file.replaceAll('\\','/').startsWith('pu
 for(const file of ['map-explorer.js','compare-history.js','report-explorer.js','alerts.js','maintenance.js','install.js','pwa.js','ui.js','main.js','api.js','format.js','chart-gaps.js','styles.css','visual.js','visual.css','interactions.css','tablet-visibility.css','dashboard-v2.css','install-sync.css'])if(!fs.existsSync(path.join('public/app',file)))throw new Error(`Missing asset: ${file}`);
 for(const file of ['manifest.webmanifest','service-worker.js','assets/pwa-icon.svg'])if(!fs.existsSync(path.join('public',file)))throw new Error(`Missing PWA asset: ${file}`);
 for(const name of ['mintronick-operaciones.apk','mintronick-sync.apk']){const apk=path.join('public','downloads',name);if(!fs.existsSync(apk)||fs.statSync(apk).size<10000)throw new Error(`Missing or invalid Android APK: ${name}`);}
-if(!fs.existsSync(path.join('public','assets','mintronick-sync-qr.svg')))throw new Error('Missing MinTronick Sync QR');
 console.log(`Sintaxis verificada: ${files.length} archivos. Assets principales presentes.`);
