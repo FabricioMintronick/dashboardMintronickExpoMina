@@ -35,6 +35,7 @@ const routes = {
   alerts: ['△','Alertas','Alarmas reportadas',''],
   history: ['◷','Historial','Explorar el historial'],
   reports: ['▤','Reportes','Centro de reportes'],
+  sensors: ['⌁','Sensores','Sensores en campo','Posición angular y distancia recibidas desde los gateways.'],
   install: ['⇩','Aplicación','Aplicaciones Android','Descarga MinTronick Operaciones o MinTronick Sync.']
   /*maintenance: ['⚒','Mantenimiento','Planificación de mantenimiento','Horómetros disponibles y requisitos para activar planes preventivos.']*/
 };

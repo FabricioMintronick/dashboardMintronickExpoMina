@@ -26,6 +26,7 @@ require('./routes/fleet').registerFleetRoutes(app, { getDb: () => db, collection
   getGateways: () => cachedGateways, catalog: require('./config/equipment.json'), staleMs: STALE_MS, gpsPrivacyEnabled: GPS_PRIVACY_ENABLED, gpsLatOffset: GPS_LAT_OFFSET, gpsLonOffset: GPS_LON_OFFSET });
 require('./routes/history').registerHistoryRoutes(app, { getDb: () => db, collection: COLLECTION, staleMs: STALE_MS });
 require('./routes/track').registerTrackRoutes(app, { getDb: () => db, collection: COLLECTION, gpsPrivacyEnabled: GPS_PRIVACY_ENABLED, gpsLatOffset: GPS_LAT_OFFSET, gpsLonOffset: GPS_LON_OFFSET });
+require('./routes/sensors').registerSensorRoutes(app,{getDb:()=>db,collection:COLLECTION,staleMs:STALE_MS});
 app.get('/api/health', (req, res) => res.json({ database: db ? 'connected' : 'unavailable', localOnly: true }));
 app.use('/api', (req, res, next) => db ? next() : res.status(503).json({ error: 'Base de datos no disponible' }));
 app.use('/events', (req, res, next) => db ? next() : res.status(503).end());
