@@ -13,15 +13,15 @@
     "name": "MAQ. 2",
     "model": "Excavadora",
     "test": false,
-    "image": "/assets/machines/excavadora.svg"
+    "image": "/assets/machines/excavadora.png"
   },
   {
     "id": "A16Q25",
     "gateway": "A16Q25",
     "name": "MAQ. 3",
-    "model": "Camión minero",
+    "model": "Perforadora",
     "test": false,
-    "image": "/assets/machines/camion-minero.svg"
+    "image": "/assets/machines/perforadora.png"
   },
   {
     "id": "A16M5P",
@@ -29,103 +29,103 @@
     "name": "MAQ. 4",
     "model": "Cargador frontal",
     "test": false,
-    "image": "/assets/machines/cargador-frontal.svg"
+    "image": "/assets/machines/cargador-frontal.png"
   },
   {
     "id": "A16Q2C",
     "gateway": "A16Q2C",
     "name": "MAQ. 5",
-    "model": "Scoop",
+    "model": "Rodillo compactador",
     "test": false,
-    "image": "/assets/machines/scoop.svg"
+    "image": "/assets/machines/rodillo-compactador.png"
   },
   {
     "id": "A16Q2L",
     "gateway": "A16Q2L",
     "name": "MAQ. 6",
-    "model": "Tractor de orugas",
+    "model": "Camión / volquete",
     "test": false,
-    "image": "/tractor-d8-transparent.png"
+    "image": "/assets/machines/volquete.png"
   },
   {
     "id": "A16Q28",
     "gateway": "A16Q28",
     "name": "MAQ. 7",
-    "model": "Excavadora",
+    "model": "Tractor de orugas",
     "test": false,
-    "image": "/assets/machines/excavadora.svg"
+    "image": "/tractor-d8-transparent.png"
   },
   {
     "id": "A16Q2G",
     "gateway": "A16Q2G",
     "name": "MAQ. 8",
-    "model": "Camión minero",
+    "model": "Excavadora",
     "test": false,
-    "image": "/assets/machines/camion-minero.svg"
+    "image": "/assets/machines/excavadora.png"
   },
   {
     "id": "A16Q23",
     "gateway": "A16Q23",
     "name": "MAQ. 9",
-    "model": "Cargador frontal",
+    "model": "Perforadora",
     "test": false,
-    "image": "/assets/machines/cargador-frontal.svg"
+    "image": "/assets/machines/perforadora.png"
   },
   {
     "id": "A16Q2J",
     "gateway": "A16Q2J",
     "name": "MAQ. 10",
-    "model": "Scoop",
+    "model": "Cargador frontal",
     "test": false,
-    "image": "/assets/machines/scoop.svg"
+    "image": "/assets/machines/cargador-frontal.png"
   },
   {
     "id": "A16Q24",
     "gateway": "A16Q24",
     "name": "MAQ. 11",
-    "model": "Tractor de orugas",
+    "model": "Rodillo compactador",
     "test": false,
-    "image": "/tractor-d8-transparent.png"
+    "image": "/assets/machines/rodillo-compactador.png"
   },
   {
     "id": "A16Q26",
     "gateway": "A16Q26",
     "name": "MAQ. 12",
-    "model": "Excavadora",
+    "model": "Camión / volquete",
     "test": false,
-    "image": "/assets/machines/excavadora.svg"
+    "image": "/assets/machines/volquete.png"
   },
   {
     "id": "A16Q27",
     "gateway": "A16Q27",
     "name": "MAQ. 13",
-    "model": "Camión minero",
+    "model": "Tractor de orugas",
     "test": false,
-    "image": "/assets/machines/camion-minero.svg"
+    "image": "/tractor-d8-transparent.png"
   },
   {
     "id": "A16Q2D",
     "gateway": "A16Q2D",
     "name": "MAQ. 14",
-    "model": "Cargador frontal",
+    "model": "Excavadora",
     "test": false,
-    "image": "/assets/machines/cargador-frontal.svg"
+    "image": "/assets/machines/excavadora.png"
   },
   {
     "id": "A16M6H",
     "gateway": "A16M6H",
     "name": "MAQ. 15",
-    "model": "Scoop",
+    "model": "Perforadora",
     "test": false,
-    "image": "/assets/machines/scoop.svg"
+    "image": "/assets/machines/perforadora.png"
   },
   {
     "id": "A16Q22",
     "gateway": "A16Q22",
     "name": "MAQ. 16",
-    "model": "Tractor de orugas",
+    "model": "Cargador frontal",
     "test": false,
-    "image": "/tractor-d8-transparent.png"
+    "image": "/assets/machines/cargador-frontal.png"
   },
   {
     "id": "A16M6M",
