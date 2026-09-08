@@ -115,3 +115,32 @@ gcc sensores.c -o sensores -lmosquitto
 ```
 
 Para TLS, configurar `mosquitto_tls_set()` con la CA antes de conectar. No desactivar la verificación del certificado en producción.
+
+## Pruebas del dashboard
+
+Para comprobar primero MongoDB y la lectura web sin depender del hardware:
+
+```powershell
+$env:SENSOR_TEST_GATEWAY="Gateway01"
+npm run sensors:test-data -- write
+```
+
+Abrir `#sensors`; los valores 37.4° y 428.2 mm deben aparecer en un máximo aproximado de dos segundos. Después se eliminan únicamente los documentos marcados por esta prueba:
+
+```powershell
+npm run sensors:test-data -- clean
+```
+
+Para comprobar después el recorrido completo por MQTT, publicar manualmente:
+
+```bash
+mosquitto_pub -h BROKER -p 1883 -u USUARIO -P CLAVE -q 1 \
+  -t '1/Gateway01/ENCODER/B' \
+  -m '{"TS":"2026-09-08T15:30:00Z","ANGULO":"37.4"}'
+
+mosquitto_pub -h BROKER -p 1883 -u USUARIO -P CLAVE -q 1 \
+  -t '1/Gateway01/SENSOR_LINEAL/B' \
+  -m '{"TS":"2026-09-08T15:30:01Z","DISTANCIA":"428.2"}'
+```
+
+Usar la fecha UTC actual al ejecutar la prueba; una fecha antigua aparecerá como lectura atrasada. No escribir la contraseña real dentro de scripts o del repositorio.
