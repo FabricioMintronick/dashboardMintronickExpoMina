@@ -1,3 +1,4 @@
+import {machineImage} from './machine.js';
 import {escape as e,date,age} from './format.js';
 import {icon,observeAlarms} from './ui.js';
 import {fleetAnalytics} from './analytics.js';
@@ -13,7 +14,7 @@ export async function mount(page,{items,panel,getJSON}){
     page.querySelector('#alert-summary').innerHTML=[['Vigentes',all.filter(r=>r.a.quality==='fresh').length,'red'],['Previos',all.filter(r=>r.a.quality!=='fresh').length,'amber'],['Equipos afectados',new Set(all.map(r=>r.i.id)).size,'teal']].map(([label,n,color])=>`<div class="summary-tile ${color}">${icon('alerts')}<strong>${n}</strong><span>${label}</span></div>`).join('');
     const rows=all.filter(r=>mode==='all'||(mode==='fresh'?r.a.quality==='fresh':r.a.quality!=='fresh'));
     const affected=current.filter(i=>i.alarms.some(a=>a.quality==='fresh')).sort((a,b)=>b.alarms.filter(x=>x.quality==='fresh').length-a.alarms.filter(x=>x.quality==='fresh').length);
-    page.querySelector('#alert-assets').innerHTML=affected.map(i=>`<button data-quick="${e(i.id)}"><img src="/tractor-d8-transparent.png" alt=""><span><b>${e(i.name)}</b></span><strong>${i.alarms.filter(a=>a.quality==='fresh').length}</strong></button>`).join('')||'<span class="empty">Sin alarmas vigentes</span>';
+    page.querySelector('#alert-assets').innerHTML=affected.map(i=>`<button data-quick="${e(i.id)}">${machineImage(i)}<span><b>${e(i.name)}</b></span><strong>${i.alarms.filter(a=>a.quality==='fresh').length}</strong></button>`).join('')||'<span class="empty">Sin alarmas vigentes</span>';
     page.querySelector('#alert-grid').innerHTML=rows.map(({i,a})=>{const key=i.id+':'+a.code,g=alarmGuidance(a.code,a.label),current=a.quality==='fresh';return `<article class="incident ${current?'current':'old'}"><div class="incident-heading"><b>${current?'VIGENTE':'LECTURA ANTERIOR'}</b><small>${reviewed.has(key)?'Revisada en esta sesión':'Pendiente de revisión'}</small></div><div class="incident-visual">${alarmSymbol(a.code)}</div><h2>${e(g[0])}</h2><h3>${e(i.name)}</h3><div class="incident-meta"><span>Detectada: ${e(date(a.at))}</span><code>${e(a.code)}</code></div><p class="incident-reason"><b>Acción sugerida:</b> ${e(g[1])}</p><div class="quick-actions"><button class="button" data-notifications data-notification-equipment="${e(i.id)}">Ver detalle</button><button class="button secondary icon-review" data-review="${e(key)}">${reviewed.has(key)?'✓ Revisada':'Marcar revisada'}</button></div></article>`;}).join('')||'<div class="empty">No hay avisos con este filtro.</div>';
     page.querySelectorAll('[data-review]').forEach(b=>b.onclick=()=>{reviewed.add(b.dataset.review);draw(true);});
   }

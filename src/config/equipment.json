@@ -2,114 +2,130 @@
   {
     "id": "A16Q2M",
     "gateway": "A16Q2M",
-    "name": "D8T-1",
-    "model": "D8T",
-    "test": false
+    "name": "MAQ. 1",
+    "model": "Tractor de orugas",
+    "test": false,
+    "image": "/tractor-d8-transparent.png"
   },
   {
     "id": "A16Q21",
     "gateway": "A16Q21",
-    "name": "D8T-2",
-    "model": "D8T",
-    "test": false
+    "name": "MAQ. 2",
+    "model": "Excavadora",
+    "test": false,
+    "image": "/assets/machines/excavadora.svg"
   },
   {
     "id": "A16Q25",
     "gateway": "A16Q25",
-    "name": "D8T-3",
-    "model": "D8T",
-    "test": false
+    "name": "MAQ. 3",
+    "model": "Camión minero",
+    "test": false,
+    "image": "/assets/machines/camion-minero.svg"
   },
   {
     "id": "A16M5P",
     "gateway": "A16M5P",
-    "name": "D8T-4",
-    "model": "D8T",
-    "test": false
+    "name": "MAQ. 4",
+    "model": "Cargador frontal",
+    "test": false,
+    "image": "/assets/machines/cargador-frontal.svg"
   },
   {
     "id": "A16Q2C",
     "gateway": "A16Q2C",
-    "name": "D8T-5",
-    "model": "D8T",
-    "test": false
+    "name": "MAQ. 5",
+    "model": "Scoop",
+    "test": false,
+    "image": "/assets/machines/scoop.svg"
   },
   {
     "id": "A16Q2L",
     "gateway": "A16Q2L",
-    "name": "D8T-6",
-    "model": "D8T",
-    "test": false
+    "name": "MAQ. 6",
+    "model": "Tractor de orugas",
+    "test": false,
+    "image": "/tractor-d8-transparent.png"
   },
   {
     "id": "A16Q28",
     "gateway": "A16Q28",
-    "name": "D8-1",
-    "model": "D8",
-    "test": false
+    "name": "MAQ. 7",
+    "model": "Excavadora",
+    "test": false,
+    "image": "/assets/machines/excavadora.svg"
   },
   {
     "id": "A16Q2G",
     "gateway": "A16Q2G",
-    "name": "D8-2",
-    "model": "D8",
-    "test": false
+    "name": "MAQ. 8",
+    "model": "Camión minero",
+    "test": false,
+    "image": "/assets/machines/camion-minero.svg"
   },
   {
     "id": "A16Q23",
     "gateway": "A16Q23",
-    "name": "D9-1",
-    "model": "D9",
-    "test": false
+    "name": "MAQ. 9",
+    "model": "Cargador frontal",
+    "test": false,
+    "image": "/assets/machines/cargador-frontal.svg"
   },
   {
     "id": "A16Q2J",
     "gateway": "A16Q2J",
-    "name": "D9-2",
-    "model": "D9",
-    "test": false
+    "name": "MAQ. 10",
+    "model": "Scoop",
+    "test": false,
+    "image": "/assets/machines/scoop.svg"
   },
   {
     "id": "A16Q24",
     "gateway": "A16Q24",
-    "name": "D9-3",
-    "model": "D9",
-    "test": false
+    "name": "MAQ. 11",
+    "model": "Tractor de orugas",
+    "test": false,
+    "image": "/tractor-d8-transparent.png"
   },
   {
     "id": "A16Q26",
     "gateway": "A16Q26",
-    "name": "D9-4",
-    "model": "D9",
-    "test": false
+    "name": "MAQ. 12",
+    "model": "Excavadora",
+    "test": false,
+    "image": "/assets/machines/excavadora.svg"
   },
   {
     "id": "A16Q27",
     "gateway": "A16Q27",
-    "name": "D9-5",
-    "model": "D9",
-    "test": false
+    "name": "MAQ. 13",
+    "model": "Camión minero",
+    "test": false,
+    "image": "/assets/machines/camion-minero.svg"
   },
   {
     "id": "A16Q2D",
     "gateway": "A16Q2D",
-    "name": "D9T-1",
-    "model": "D9T",
-    "test": false
+    "name": "MAQ. 14",
+    "model": "Cargador frontal",
+    "test": false,
+    "image": "/assets/machines/cargador-frontal.svg"
   },
   {
     "id": "A16M6H",
     "gateway": "A16M6H",
-    "name": "D9T-2",
-    "model": "D9T",
-    "test": false
+    "name": "MAQ. 15",
+    "model": "Scoop",
+    "test": false,
+    "image": "/assets/machines/scoop.svg"
   },
   {
     "id": "A16Q22",
     "gateway": "A16Q22",
-    "name": "D9T-3",
-    "model": "D9T",
-    "test": false
+    "name": "MAQ. 16",
+    "model": "Tractor de orugas",
+    "test": false,
+    "image": "/tractor-d8-transparent.png"
   },
   {
     "id": "A16M6M",
