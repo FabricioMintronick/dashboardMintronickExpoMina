@@ -3,8 +3,8 @@ const {MongoClient}=require('mongodb');
 const {uri,MONGO_DB,COLLECTION}=require('../src/config');
 
 const mode=process.argv[2],gateway=process.env.SENSOR_TEST_GATEWAY||'Gateway01';
-if(!['write','series','clean'].includes(mode)){
-  console.log('Uso: npm run sensors:test-data -- write | series | clean');
+if(!['write','series','verify','clean'].includes(mode)){
+  console.log('Uso: npm run sensors:test-data -- write | series | verify | clean');
   console.log(`Gateway de prueba: ${gateway} (cambiar con SENSOR_TEST_GATEWAY)`);
   process.exit(0);
 }
@@ -15,6 +15,12 @@ if(!uri)throw new Error('Falta MONGO_URI');
   try{
     await client.connect();
     const collection=client.db(MONGO_DB).collection(COLLECTION);
+    if(mode==='verify'){
+      const started=Date.now(),filter={name:{$in:['ENCODER','SENSOR_LINEAL']}};
+      const rows=await collection.find(filter).sort({date:-1}).limit(20).maxTimeMS(8000).toArray();
+      console.log(JSON.stringify({documents:rows.length,milliseconds:Date.now()-started,latest:rows.slice(0,4).map(row=>({gateway:row.gateway,name:row.name,angle:row.ANGULO,distance:row.DISTANCIA,date:row.date}))},null,2));
+      return;
+    }
     if(mode==='clean'){
       const result=await collection.deleteMany({_sensorDashboardTest:true,gateway});
       console.log(`Lecturas de prueba eliminadas: ${result.deletedCount}`);
