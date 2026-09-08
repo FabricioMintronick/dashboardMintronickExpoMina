@@ -127,6 +127,15 @@ npm run sensors:test-data -- write
 
 Abrir `#sensors`; los valores 37.4° y 428.2 mm deben aparecer en un máximo aproximado de dos segundos. Después se eliminan únicamente los documentos marcados por esta prueba:
 
+Para observar el movimiento, mantener abierta la vista Sensores y ejecutar una serie de diez posiciones diferentes:
+
+```powershell
+$env:SENSOR_TEST_GATEWAY="Gateway01"
+npm run sensors:test-data -- series
+```
+
+La serie dura cerca de 25 segundos. La perforadora cambia su inclinación entre −35° y 55°, mientras la grúa extiende y recoge el brazo entre 120 y 860 mm.
+
 ```powershell
 npm run sensors:test-data -- clean
 ```

@@ -3,8 +3,8 @@ const {MongoClient}=require('mongodb');
 const {uri,MONGO_DB,COLLECTION}=require('../src/config');
 
 const mode=process.argv[2],gateway=process.env.SENSOR_TEST_GATEWAY||'Gateway01';
-if(!['write','clean'].includes(mode)){
-  console.log('Uso: npm run sensors:test-data -- write | clean');
+if(!['write','series','clean'].includes(mode)){
+  console.log('Uso: npm run sensors:test-data -- write | series | clean');
   console.log(`Gateway de prueba: ${gateway} (cambiar con SENSOR_TEST_GATEWAY)`);
   process.exit(0);
 }
@@ -18,6 +18,21 @@ if(!uri)throw new Error('Falta MONGO_URI');
     if(mode==='clean'){
       const result=await collection.deleteMany({_sensorDashboardTest:true,gateway});
       console.log(`Lecturas de prueba eliminadas: ${result.deletedCount}`);
+      return;
+    }
+    if(mode==='series'){
+      const samples=[[-35,120],[-20,230],[0,360],[18,510],[36,680],[55,860],[32,720],[10,540],[-12,330],[-30,160]];
+      const interval=Math.max(2100,Number(process.env.SENSOR_TEST_INTERVAL_MS)||2500);
+      console.log(`Enviando ${samples.length} posiciones a ${gateway}; mantén abierta la vista Sensores.`);
+      for(let index=0;index<samples.length;index++){
+        const [angle,distance]=samples[index],now=new Date();
+        await collection.insertMany([
+          {customer:1,gateway,name:'ENCODER',ANGULO:angle,date:now,received_at:now,source:'B',_sensorDashboardTest:true},
+          {customer:1,gateway,name:'SENSOR_LINEAL',DISTANCIA:distance,date:new Date(now.getTime()+1),received_at:now,source:'B',_sensorDashboardTest:true}
+        ]);
+        console.log(`${index+1}/${samples.length}: ${angle}° · ${distance} mm`);
+        if(index<samples.length-1)await new Promise(resolve=>setTimeout(resolve,interval));
+      }
       return;
     }
     const now=new Date(),receivedAt=new Date();
