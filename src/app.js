@@ -5,7 +5,7 @@ const { MongoClient } = require('mongodb');
 const { execFile } = require('child_process');
 const {offsetLocation}=require('./domain/location-privacy');
 
-const { uri, MONGO_DB, COLLECTION, PORT, STALE_MS, ALLOW_LAN, GPS_PRIVACY_ENABLED, GPS_LAT_OFFSET, GPS_LON_OFFSET, DASHBOARD_USER, DASHBOARD_PASSWORD, DASHBOARD_USERS, AUTH_SECRET, AUTH_COOKIE_SECURE } = require('./config');
+const { uri, MONGO_DB, COLLECTION, SENSORS_COLLECTION, PORT, STALE_MS, ALLOW_LAN, GPS_PRIVACY_ENABLED, GPS_LAT_OFFSET, GPS_LON_OFFSET, DASHBOARD_USER, DASHBOARD_PASSWORD, DASHBOARD_USERS, AUTH_SECRET, AUTH_COOKIE_SECURE } = require('./config');
 const POLL_MS = 2000;
 
 const app = express();
@@ -26,7 +26,7 @@ require('./routes/fleet').registerFleetRoutes(app, { getDb: () => db, collection
   getGateways: () => cachedGateways, catalog: require('./config/equipment.json'), staleMs: STALE_MS, gpsPrivacyEnabled: GPS_PRIVACY_ENABLED, gpsLatOffset: GPS_LAT_OFFSET, gpsLonOffset: GPS_LON_OFFSET });
 require('./routes/history').registerHistoryRoutes(app, { getDb: () => db, collection: COLLECTION, staleMs: STALE_MS });
 require('./routes/track').registerTrackRoutes(app, { getDb: () => db, collection: COLLECTION, gpsPrivacyEnabled: GPS_PRIVACY_ENABLED, gpsLatOffset: GPS_LAT_OFFSET, gpsLonOffset: GPS_LON_OFFSET });
-require('./routes/sensors').registerSensorRoutes(app,{getDb:()=>db,collection:COLLECTION,staleMs:STALE_MS});
+require('./routes/sensors').registerSensorRoutes(app,{getDb:()=>db,collection:SENSORS_COLLECTION,staleMs:STALE_MS});
 app.get('/api/health', (req, res) => res.json({ database: db ? 'connected' : 'unavailable', localOnly: true }));
 app.use('/api', (req, res, next) => db ? next() : res.status(503).json({ error: 'Base de datos no disponible' }));
 app.use('/events', (req, res, next) => db ? next() : res.status(503).end());
