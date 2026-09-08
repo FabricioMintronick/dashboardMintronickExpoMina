@@ -54,4 +54,39 @@ db.createCollection("sensors", {
 db.sensors.createIndex({gateway: 1, variable: 1, date: -1})
 ```
 
-El proceso que reciba MQTT será responsable de insertar estas lecturas. La página web solo consulta MongoDB y refresca las dos tarjetas cada dos segundos.
+## Flujo recomendado desde MQTT
+
+```text
+Sensores → Gateway → Broker MQTT → Receptor MQTT → POST /ingest/sensors
+                                                ↓
+                                        MongoDB / sensors
+                                                ↓
+                                           Dashboard
+```
+
+El receptor MQTT no debe escribir directamente desde el navegador. Al recibir un mensaje, envía al dashboard una solicitud HTTPS autenticada:
+
+```http
+POST /ingest/sensors
+Authorization: Bearer TOKEN_SECRETO
+Content-Type: application/json
+```
+
+```json
+{
+  "gateway": "Gateway01",
+  "date": "2026-09-08T15:30:00Z",
+  "readings": [
+    {"sensorId":"ENC-01","type":"ENCODER","variable":"ANGULO","value":37.4},
+    {"sensorId":"LIN-01","type":"SENSOR_LINEAL","variable":"DISTANCIA","value":428.2}
+  ]
+}
+```
+
+Respuesta aceptada:
+
+```json
+{"accepted":2,"receivedAt":"2026-09-08T15:30:01.000Z"}
+```
+
+Configura en el servidor un token aleatorio de al menos 32 caracteres mediante `SENSOR_INGEST_TOKEN`. El endpoint valida el tipo, la variable, el valor numérico y la fecha antes de insertar. La página web consulta MongoDB y refresca las dos tarjetas cada dos segundos.

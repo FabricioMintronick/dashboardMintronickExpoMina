@@ -5,7 +5,7 @@ const { MongoClient } = require('mongodb');
 const { execFile } = require('child_process');
 const {offsetLocation}=require('./domain/location-privacy');
 
-const { uri, MONGO_DB, COLLECTION, SENSORS_COLLECTION, PORT, STALE_MS, ALLOW_LAN, GPS_PRIVACY_ENABLED, GPS_LAT_OFFSET, GPS_LON_OFFSET, DASHBOARD_USER, DASHBOARD_PASSWORD, DASHBOARD_USERS, AUTH_SECRET, AUTH_COOKIE_SECURE } = require('./config');
+const { uri, MONGO_DB, COLLECTION, SENSORS_COLLECTION, SENSOR_INGEST_TOKEN, PORT, STALE_MS, ALLOW_LAN, GPS_PRIVACY_ENABLED, GPS_LAT_OFFSET, GPS_LON_OFFSET, DASHBOARD_USER, DASHBOARD_PASSWORD, DASHBOARD_USERS, AUTH_SECRET, AUTH_COOKIE_SECURE } = require('./config');
 const POLL_MS = 2000;
 
 const app = express();
@@ -15,6 +15,7 @@ app.use((req, res, next) => { res.set('X-Content-Type-Options', 'nosniff'); res.
 // This delivery has no tenant authentication: serve on loopback only and reject
 // untrusted Host headers to reduce DNS rebinding exposure on the local service.
 app.use((req, res, next) => {const host=req.hostname;if(['127.0.0.1','localhost','[::1]'].includes(host)||ALLOW_LAN&&(/^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host)))return next();res.status(403).end('Local access only');});
+require('./routes/sensor-ingest').registerSensorIngestRoute(app,{getDb:()=>db,collection:SENSORS_COLLECTION,token:SENSOR_INGEST_TOKEN});
 require('./auth').registerAuth(app,{users:Object.keys(DASHBOARD_USERS).length?DASHBOARD_USERS:DASHBOARD_USER?{[DASHBOARD_USER]:DASHBOARD_PASSWORD}:{},secret:AUTH_SECRET,secureCookie:AUTH_COOKIE_SECURE});
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.get('/mapa', (req,res)=>res.sendFile(path.join(__dirname,'..','public','mapa.html')));
