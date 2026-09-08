@@ -22,5 +22,5 @@ if(process.env.DASHBOARD_USERS_JSON){try{DASHBOARD_USERS=JSON.parse(process.env.
 if (!Number.isInteger(PORT) || PORT < 1 || PORT > 65535) throw new Error('Puerto inválido');
 if (!Number.isFinite(seconds) || seconds < 1) throw new Error('Vigencia inválida');
 module.exports = { uri: process.env.MONGO_URI || '', MONGO_DB: process.env.MONGO_DB || 'MTKDATA',
-  COLLECTION: process.env.MONGO_COLLECTION || 'iotdatas', SENSORS_COLLECTION:process.env.MONGO_SENSORS_COLLECTION||'sensors', SENSOR_INGEST_TOKEN:process.env.SENSOR_INGEST_TOKEN||'', PORT, STALE_MS: seconds * 1000, ALLOW_LAN, GPS_PRIVACY_ENABLED, GPS_LAT_OFFSET, GPS_LON_OFFSET,
+  COLLECTION: process.env.MONGO_COLLECTION || 'iotdatas', PORT, STALE_MS: seconds * 1000, ALLOW_LAN, GPS_PRIVACY_ENABLED, GPS_LAT_OFFSET, GPS_LON_OFFSET,
   DASHBOARD_USER:process.env.DASHBOARD_USER||'',DASHBOARD_PASSWORD:process.env.DASHBOARD_PASSWORD||'',DASHBOARD_USERS,AUTH_SECRET:process.env.AUTH_SECRET||'',AUTH_COOKIE_SECURE:process.env.AUTH_COOKIE_SECURE!=='false' };
