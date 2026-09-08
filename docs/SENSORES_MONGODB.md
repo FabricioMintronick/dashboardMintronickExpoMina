@@ -4,33 +4,32 @@ No se necesita otra API ni otra colección. El servicio `mtk-ingest-service` exi
 
 ## Mensajes MQTT
 
-Agregar estos dos tópicos a `mqtt/TOPIC_LIST.json`, conservando el formato que ya usa el archivo:
+La suscripción existente ya cubre ambos sensores y no necesita cambios:
 
 ```text
-1/Gateway01/ENCODER/R
-1/Gateway01/SENSOR_LINEAL/R
+["1/+/+/+"]
 ```
 
-Publicar un objeto JSON por sensor. `TS` debe ser una fecha ISO con zona horaria.
+Publicar un objeto JSON por sensor mediante la acción de respaldo `/B`. `TS` debe ser una fecha ISO con zona horaria.
 
 ```text
-Tópico: 1/Gateway01/ENCODER/R
+Tópico: 1/Gateway01/ENCODER/B
 Payload: {"TS":"2026-09-08T15:30:00Z","ANGULO":"37.4"}
 ```
 
 ```text
-Tópico: 1/Gateway01/SENSOR_LINEAL/R
+Tópico: 1/Gateway01/SENSOR_LINEAL/B
 Payload: {"TS":"2026-09-08T15:30:01Z","DISTANCIA":"428.2"}
 ```
 
 El flujo actual produce documentos equivalentes a:
 
 ```javascript
-{customer: 1, gateway: "Gateway01", name: "ENCODER", ANGULO: 37.4, date: ISODate("2026-09-08T15:30:00Z"), received_at: ISODate(...), source: "R"}
-{customer: 1, gateway: "Gateway01", name: "SENSOR_LINEAL", DISTANCIA: 428.2, date: ISODate("2026-09-08T15:30:01Z"), received_at: ISODate(...), source: "R"}
+{customer: 1, gateway: "Gateway01", name: "ENCODER", ANGULO: 37.4, date: ISODate("2026-09-08T15:30:00Z"), received_at: ISODate(...), source: "B"}
+{customer: 1, gateway: "Gateway01", name: "SENSOR_LINEAL", DISTANCIA: 428.2, date: ISODate("2026-09-08T15:30:01Z"), received_at: ISODate(...), source: "B"}
 ```
 
-No hay que cambiar `models/data.js`, `messageHandler.js` ni `dataBufferManager.js`: el esquema usa `strict: false` y el buffer ya admite `ANGULO` y `DISTANCIA` como campos dinámicos numéricos.
+No hay que cambiar `TOPIC_LIST.json`, `models/data.js`, `messageHandler.js` ni `dataBufferManager.js`: el comodín ya recibe estos tópicos, el esquema usa `strict: false` y el flujo `/B` guarda `ANGULO` y `DISTANCIA`, evita duplicados por fecha y publica el ACK existente.
 
 ## Índice recomendado
 
