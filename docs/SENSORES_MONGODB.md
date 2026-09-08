@@ -51,3 +51,67 @@ db.iotdatas.find(
   {gateway: 1, name: 1, ANGULO: 1, DISTANCIA: 1, date: 1}
 ).sort({date: -1}).limit(4)
 ```
+
+## Ejemplo del publicador en C
+
+Este ejemplo usa `libmosquitto`, publica con QoS 1 y mantiene las credenciales fuera del código. Las funciones `leer_angulo()` y `leer_distancia()` deben reemplazarse por la lectura real del hardware.
+
+```c
+#include <mosquitto.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+static void fecha_iso_utc(char *destino, size_t capacidad) {
+    time_t ahora = time(NULL);
+    struct tm utc;
+    gmtime_r(&ahora, &utc);
+    strftime(destino, capacidad, "%Y-%m-%dT%H:%M:%SZ", &utc);
+}
+
+static int publicar(struct mosquitto *cliente, const char *topico,
+                    const char *variable, double valor) {
+    char fecha[32], payload[160];
+    fecha_iso_utc(fecha, sizeof fecha);
+    snprintf(payload, sizeof payload,
+             "{\"TS\":\"%s\",\"%s\":\"%.2f\"}",
+             fecha, variable, valor);
+    return mosquitto_publish(cliente, NULL, topico,
+                             (int)strlen(payload), payload, 1, false);
+}
+
+int main(void) {
+    const char *host = getenv("MQTT_HOST");
+    const char *usuario = getenv("MQTT_USERNAME");
+    const char *clave = getenv("MQTT_PASSWORD");
+    int puerto = getenv("MQTT_PORT") ? atoi(getenv("MQTT_PORT")) : 1883;
+
+    mosquitto_lib_init();
+    struct mosquitto *cliente = mosquitto_new("gateway01-sensores", true, NULL);
+    if (!cliente || !host) return 1;
+    if (usuario && *usuario)
+        mosquitto_username_pw_set(cliente, usuario, clave);
+    if (mosquitto_connect(cliente, host, puerto, 30) != MOSQ_ERR_SUCCESS)
+        return 2;
+    mosquitto_loop_start(cliente);
+
+    publicar(cliente, "1/Gateway01/ENCODER/B", "ANGULO", 37.4);
+    publicar(cliente, "1/Gateway01/SENSOR_LINEAL/B", "DISTANCIA", 428.2);
+
+    /* En producción, mantener el loop activo y publicar cada nueva lectura. */
+    mosquitto_disconnect(cliente);
+    mosquitto_loop_stop(cliente, false);
+    mosquitto_destroy(cliente);
+    mosquitto_lib_cleanup();
+    return 0;
+}
+```
+
+Compilar en Linux con:
+
+```bash
+gcc sensores.c -o sensores -lmosquitto
+```
+
+Para TLS, configurar `mosquitto_tls_set()` con la CA antes de conectar. No desactivar la verificación del certificado en producción.
